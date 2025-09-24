@@ -1,0 +1,72 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 80vh;
+  background-color: green; 
+  padding: 0 4rem;
+  box-sizing: border-box;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  letter-spacing: 2px;
+  font-weight: 650;
+  line-height: 1.2;
+  color: #fff;
+  text-align: left;
+  width: 700px;
+  font-size: 51px;
+  font-family: Montserrat;
+  margin-bottom: 2.5rem;
+}
+
+.hero-input {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.hero-input-child {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  width: 400px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+}
+
+.location {
+  font-size: 1.5rem;
+  color: #777;
+  margin-right: 10px;
+}
+
+.hero-input input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1.1rem;
+}
+
+
+
+.hero-input button {
+  background-color: #ffb266;
+  border: none;
+  padding:  1rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+
+.hero-input button:hover {
+  background-color: #ff9f40;
+}

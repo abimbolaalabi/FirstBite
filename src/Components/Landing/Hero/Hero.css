@@ -3,11 +3,17 @@
   align-items: center;
   justify-content: flex-start;
   height: 80vh;
-  background-color: green; 
   padding: 0 4rem;
   box-sizing: border-box;
-}
 
+  background: 
+    linear-gradient(90deg, rgba(0, 0, 0, 0.5) 26.2%, rgba(255, 119, 0, 0.2) 100%), 
+    url("/firstbite/hero.jpg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 .hero-content {
   max-width: 700px;
 }
@@ -56,7 +62,7 @@
 
 
 .hero-input button {
-  background-color: #ffb266;
+  background-color: #ff7700;
   border: none;
   padding:  1rem;
   border-radius: 10px;

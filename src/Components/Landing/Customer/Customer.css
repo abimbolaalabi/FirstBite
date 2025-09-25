@@ -1,0 +1,71 @@
+.customer-container {
+  font-family: Montserrat;
+  display: flex;
+  flex-direction: column;
+  /* padding: 30px 60px; */
+}
+
+.customer-view p {
+  font-weight: 600;
+  font-size: 32px;
+  text-align: center;
+  margin: 50px 0 50px;
+}
+
+/* row of testimonials */
+.customer-row {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.customer-testimonials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  gap: 15px;
+}
+
+.customer-img {
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.customer-name p {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  margin: 0;
+}
+
+.customers-testimonies p {
+  max-width: 200px;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: #444;
+  line-height: 1.4;
+ 
+}
+
+
+.customers-rating {
+  font-size: 32px;
+  color: #ff7700;
+  text-align: center;
+}
+
+.customers-rating .star {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+.star.empty {
+  color: #ddd;
+}

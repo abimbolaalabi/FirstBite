@@ -1,5 +1,7 @@
 import React from "react";
 import "./Contact.css";
+import { CiFacebook } from "react-icons/ci";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -81,13 +83,15 @@ const Contact = () => {
               <textarea name="" id="" placeholder="input"></textarea>
             </div>
             <div className="Btn_area">
-              <button></button>
+              <button>Send Message</button>
             </div>
           </div>
 
           <article className="social_media_holder">
             <div className="Social_media_wrapper">
-              <h1>facebook</h1>
+              <CiFacebook className="Media_icon_img" />
+              <FaInstagram className="Media_icon_img" />
+              <FaWhatsapp className="Media_icon_img" />
             </div>
           </article>
         </div>

@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
 import "./Header.css"
+import Login from '../../Landing/Login/Login'
 const Header = () => {
-    const[active, setActive] = useState("menu")
+    const[modal, setModal] = useState(false)
+    const openModal = () => {
+      setModal(true)
+    }
+    const closeModal = () => {
+      setModal(false)
+    }
   return (
     <div className='header-container'>
       <div className='header-wrapper'>
@@ -15,8 +22,11 @@ const Header = () => {
                 <li className=''>Contacts</li>
             </ul>
         </div>
-         <button className='button_header'>Login</button>
+         <button className='button_header' onClick={openModal}>Login</button>
       </div>
+      {
+        modal &&  <Login closeModal={closeModal}/>
+      }
      
     </div>
   )

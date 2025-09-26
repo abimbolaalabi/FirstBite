@@ -1,0 +1,72 @@
+.healthy-container {
+  min-height: 85vh;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+  101.08deg,
+  #FF7700 56.38%,
+  #FAE019 99.91%
+);
+}
+.healthy-container p {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+.healthy-text {
+  display: flex;
+  max-width: 55rem;
+  display: flex;
+  text-align: center;
+  align-self: center;
+}
+.healthy-text p {
+  font-weight: 500;
+  font-size: 21px;
+  text-align: center;
+   color: #fff;
+}
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 30px;
+}
+.scroll {
+  display: flex;
+  animation: slide 10s linear infinite;
+  gap: 10px;
+}
+
+.scroll img {
+  width: 300px;       
+  height: 20rem; 
+  object-fit: cover;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.healthy-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+.healthy-btn button{
+    padding: 16px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}

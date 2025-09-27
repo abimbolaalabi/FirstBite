@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./Header.css"
 import Login from '../../Landing/Login/Login'
+import { useNavigate } from 'react-router-dom'
 const Header = () => {
     const[modal, setModal] = useState(false)
     const openModal = () => {
@@ -8,6 +9,10 @@ const Header = () => {
     }
     const closeModal = () => {
       setModal(false)
+    }
+    const navigate = useNavigate()
+    const handlenavigate = () => {
+      navigate("/contact")
     }
   return (
     <div className='header-container'>
@@ -19,10 +24,10 @@ const Header = () => {
             <ul>
                 <li >Menu</li>
                 <li className>Zones</li>
-                <li className=''>Contacts</li>
+                <li className='' onClick={handlenavigate}>Contacts</li>
             </ul>
         </div>
-         <button className='button_header' onClick={openModal}>Login</button>
+         <button className='button_header' onClick={openModal}>Get Started</button>
       </div>
       {
         modal &&  <Login closeModal={closeModal}/>

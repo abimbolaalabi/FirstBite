@@ -5,6 +5,8 @@ import Home from './Pages/Home'
 import Layout from './RouteLayout/Layout'
 import Contact from './Pages/Contact'
 import Menu from './Pages/Menu'
+import Profile from './Pages/Profile'
+import Order from './Pages/Order'
 function App() {
 
 
@@ -15,6 +17,8 @@ function App() {
          <Route index  element={<Home/>}/>
          <Route path='/contact' element={<Contact/>}/>
          <Route path='/menu' element={<Menu/>}/>
+         <Route path ='/profile' element={<Profile/>}/>
+         <Route path='/order' element={<Order/>}/>
        </Route>
 
 

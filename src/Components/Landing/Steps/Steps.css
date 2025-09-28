@@ -1,0 +1,62 @@
+.steps-container {
+  min-height: 70vh;
+  border: 2px solid pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.steps-contained{
+    max-width: 90%;
+    width: 100%;
+}
+.steps-text {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.steps-text h3 {
+  font-weight: 600;
+  font-size: 32px;
+
+ 
+}
+.steps-subtext{
+     display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center; 
+    margin-bottom: 30px;
+}
+.steps-subtext p {
+  font-size: 20px;
+  font-weight: 500;
+}
+.steps-wrapper{
+
+    border: 3px solid gray;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    
+}
+.steps-wrapped{
+    width: 45%;
+    height: 50vh;
+    border: 1px solid violet;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.first-step, .second-step, .third-step{
+    height: 30%;
+    border: 1px solid blue ;
+    margin-top: 10px;
+}
+.steps-image{
+    width: 45%;
+    height: 52vh;
+    border: 1px solid yellowgreen;
+}

@@ -1,0 +1,57 @@
+.deliver-container{
+    min-height: 70vh;
+    border: 1px solid green;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.deliver-container p{
+    font-size: 32px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.deliver-img {
+    width: 400px;
+    min-height: 250px;
+    border: 1px solid red;
+    overflow: hidden;
+    background: url("/firstbite/map.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.delivery-location{
+    width: 55%;
+    min-height: 25vh;
+    border: 1px solid blue;
+    line-height: 2.7;
+    display: flex;
+    justify-content: space-between;
+
+}
+.delivery-axis{
+   border: 1px solid black; 
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+.axis p{
+  font-size: 16px;
+  font-weight: 600;
+}
+.delivery-axis ul {
+     list-style-position: inside;
+     margin: 0;
+     padding-left: 0;
+}
+.delivery-axis li{
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 0;
+    margin-left: 0;
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Header.css"
 import Login from '../../Landing/Login/Login'
 import { useNavigate } from 'react-router-dom'
+import Modal from '../../Landing/Auth/Modal'
 const Header = () => {
     const[modal, setModal] = useState(false)
     const openModal = () => {
@@ -30,7 +31,7 @@ const Header = () => {
          <button className='button_header' onClick={openModal}>Get Started</button>
       </div>
       {
-        modal &&  <Login closeModal={closeModal}/>
+        modal &&  <Modal closeModal={closeModal}/>
       }
      
     </div>

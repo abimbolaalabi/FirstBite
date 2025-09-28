@@ -1,57 +1,54 @@
-.deliver-container{
-    min-height: 70vh;
-    border: 1px solid green;
-    margin-top: 80px;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
+.deliver-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  margin-top: 40px;
 }
-.deliver-container p{
-    font-size: 32px;
-    font-weight: 600;
+.delivery-container{
+    margin-top: 60px;
+}
+.delivery-container h1{
     display: flex;
-    justify-content: center;
+    align-items: center;
     text-align: center;
-}
-.deliver-img {
-    width: 400px;
-    min-height: 250px;
-    border: 1px solid red;
-    overflow: hidden;
-    background: url("/firstbite/map.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    justify-content: center;
 }
 
-.delivery-location{
-    width: 55%;
-    min-height: 25vh;
-    border: 1px solid blue;
-    line-height: 2.7;
-    display: flex;
-    justify-content: space-between;
-
-}
-.delivery-axis{
-   border: 1px solid black; 
-   display: flex;
-   flex-direction: column;
-   align-items: flex-start;
+.deliver-wrapper img {
+  /* max-width: 80rem; */
+  width: 25rem;
+  height: 250px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
-.axis p{
-  font-size: 16px;
+.delivery-locations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  line-height: 2.2;
+}
+
+.location-group {
+  min-width: 160px;
+}
+
+.axis-title {
   font-weight: 600;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
 }
-.delivery-axis ul {
-     list-style-position: inside;
-     margin: 0;
-     padding-left: 0;
+
+.places-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
 }
-.delivery-axis li{
-    font-weight: 400;
-    font-size: 16px;
-    padding-left: 0;
-    margin-left: 0;
+
+.place-item {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
 }

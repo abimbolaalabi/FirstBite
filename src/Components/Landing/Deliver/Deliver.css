@@ -1,4 +1,4 @@
-.deliver-wrapper {
+.delivery-wrapper{
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -6,46 +6,48 @@
   margin-top: 2rem;
   flex-wrap: wrap;
   margin-top: 40px;
+
 }
-.delivery-container {
-  margin-top: 60px;
+.delivery-container{
+    margin-top: 60px;  
 }
-.delivery-container h1 {
+.delivery-container h1{
   display: flex;
-  align-items: center;
-  text-align: center;
   justify-content: center;
 }
-.deliver-wrapper img {
+
+.delivery-wrapper img{
   /* max-width: 80rem; */
   width: 25rem;
   height: 250px;
   border-radius: 8px;
   object-fit: cover;
 }
-.delivery-locations {
+
+.delivery-locations{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   line-height: 2.2;
 }
-.location-group {
+
+.location-group{
   min-width: 160px;
 }
 
-.axis-title {
+.axis-title{
   font-weight: 600;
   margin-bottom: 0.8rem;
   font-size: 1.1rem;
 }
 
-.places-list {
+.places-list{
   list-style: disc;
   padding-left: 1.2rem;
   margin: 0;
 }
 
-.place-item {
+.place-item{
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
 }

@@ -1,15 +1,17 @@
 .steps-container {
   min-height: 70vh;
-  border: 2px solid pink;
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+  margin-bottom: 50px;
 }
 .steps-contained {
   max-width: 90%;
   width: 100%;
+  margin-bottom: 50px;
 }
 .steps-text {
   margin-bottom: 30px;
@@ -34,7 +36,6 @@
   font-weight: 500;
 }
 .steps-wrapper {
-  border: 3px solid gray;
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -42,7 +43,7 @@
 .steps-wrapped {
   width: 45%;
   min-height: 50vh;
-  border: 1px solid violet;
+
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -54,8 +55,7 @@
   margin-top: 10px;
   padding: 10px;
   border: 1px solid #ececec;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  box-shadow: rgba(100, 100, 111, 0.2);
+
 }
 .first-step h4,
 .second-step h4,
@@ -80,6 +80,6 @@
 .steps-image img {
   width: 100%;
   height: 100%;
-  border: 1px solid yellowgreen;
+
   object-fit: cover;
 }

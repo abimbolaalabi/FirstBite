@@ -20,14 +20,14 @@ const Customer = () => {
     {
       id: 3,
       name: "Chisom Habeeb",
-      image: "public/firstbite/chisom.jpg",
+      image: "/firstbite/chisom.jpg",
       quote: "Saved me so many mornings when I was running late.",
       rating: 5
     },
     {
       id: 4,
       name: "Amara Habeeb",
-      image: "public/firstbite/Amara.jpg",
+      image: "/firstbite/Amara.jpg",
       quote: "Ordering before work has never been this easy!",
       rating: 5
     },

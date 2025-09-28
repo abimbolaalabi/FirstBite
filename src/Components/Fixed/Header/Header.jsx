@@ -24,7 +24,7 @@ const Header = () => {
         <div className='header-list'>
             <ul>
                 <li >Menu</li>
-                <li className>Zones</li>
+                {/* <li className>Zones</li> */}
                 <li className='' onClick={handlenavigate}>Contacts</li>
             </ul>
         </div>

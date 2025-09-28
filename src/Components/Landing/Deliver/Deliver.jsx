@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./Deliver.css"
 const Deliver = () => {
     const locationsData = [
         {
@@ -22,10 +22,10 @@ const Deliver = () => {
     return (
         <div className='delivery-container'>
             <h1>Where We Deliver</h1>
-            <div className='deliver-wrapper'>
-                <div>
+            <div className='delivery-wrapper'>
+            
                     <img src="/firstbite/map.png" alt="" />
-                </div>
+                
                 <div className='delivery-locations'>
                     {locationsData.map((group, index) => (
                         <div key={index} className="location-group">

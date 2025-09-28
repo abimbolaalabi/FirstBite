@@ -41,7 +41,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .first-cat-img {
-  width: 23.1rem;
+  width: 24.5rem;
   height: 190px;
   background: url("/firstbite/first.jpg");
   background-repeat: no-repeat;
@@ -52,7 +52,7 @@
   border-top-left-radius: 10px;
 }
 .second-cat-img {
-  width: 23.1rem;
+  width: 24.5rem;
   height: 190px;
   background: url("/firstbite/second.jpg");
   background-repeat: no-repeat;
@@ -63,7 +63,7 @@
   border-top-left-radius: 10px;
 }
 .third-cat-img {
-  width: 23.1rem;
+  width: 24.5rem;
   height: 190px;
   background: url("/firstbite/third.jpg");
   background-repeat: no-repeat;

@@ -1,0 +1,105 @@
+.modal{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadIn 1s ease;
+    background: rgba(0, 0, 0, 0.6);
+}
+@keyframes fadIn{
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.login_container {
+  background: #fff;
+  min-width: 500px;
+  min-height: 80vh;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.4s ease;
+}
+
+.login, .login_to{
+    text-align: center;
+}
+.body, .psw{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+}
+.body > input, .psw > input{
+    padding: 1rem;
+    border-radius: 10px;
+}
+.log{
+    line-height: 1.5;
+}
+.log > h3{
+    font-size: 20px;
+}
+.log > h4{
+    font-size: 16px;
+    font-weight: 500;
+}
+.fpsw{
+    font-size: 11px;
+}
+.log_al{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin: 20px 0;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+.divider:not(:empty)::before {
+  margin-right: 10px;
+}
+.divider:not(:empty)::after {
+  margin-left: 10px;
+}
+.log_atl_log{
+    padding: 1rem 0;
+    border-radius: 10px;
+    background: #ff7700;
+    border: none;
+    outline: none;
+    font-size: 17px;
+}
+.btn{
+    padding: 1rem 0;
+    border-radius: 10px;
+    font-size: 17px;
+    outline: none;
+    border: 1px solid;
+    background: white;
+}
+.acct{
+    text-align: center;
+}

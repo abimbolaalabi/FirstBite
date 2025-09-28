@@ -7,16 +7,15 @@
   flex-wrap: wrap;
   margin-top: 40px;
 }
-.delivery-container{
-    margin-top: 60px;
+.delivery-container {
+  margin-top: 60px;
 }
-.delivery-container h1{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+.delivery-container h1 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
-
 .deliver-wrapper img {
   /* max-width: 80rem; */
   width: 25rem;
@@ -24,14 +23,12 @@
   border-radius: 8px;
   object-fit: cover;
 }
-
 .delivery-locations {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   line-height: 2.2;
 }
-
 .location-group {
   min-width: 160px;
 }

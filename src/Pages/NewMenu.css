@@ -1,0 +1,16 @@
+.new-menu-wrapper{
+    width: 100%;
+    height: 100vh;
+    background-color: blue;
+}
+
+
+
+.new-menu{
+    min-height: 20vh;
+    background-color: aqua;
+    background-image: url("/firstbite/menuhero.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

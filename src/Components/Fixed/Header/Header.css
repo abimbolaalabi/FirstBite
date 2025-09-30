@@ -25,6 +25,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+  cursor: pointer;
 }
 
 .header-list ul {
@@ -36,6 +37,7 @@
   font-weight: 400;
   list-style: none;
   font-family: Montserrat;
+  cursor: pointer;
 }
 .active{
     color: #ff7700;
@@ -53,4 +55,5 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     font-size: 16px;
     font-weight: 400;
+    cursor: pointer;
 }

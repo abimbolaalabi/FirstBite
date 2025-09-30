@@ -26,7 +26,7 @@ const Steps = () => {
                         </div>
                     </div>
                     <div className='steps-image'>
-                        <img src="/firstbite/steps.jpg" alt="" />
+                        {/* <img src="/firstbite/steps.jpg" alt="" /> */}
                     </div>
                 </div>
             </div>

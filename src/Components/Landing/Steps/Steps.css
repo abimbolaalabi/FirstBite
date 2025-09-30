@@ -59,7 +59,7 @@
 }
 .first-step h4,
 .second-step h4,
-.third-step h4 {
+.third-step h4{
   font-size: 20px;
   font-weight: 700;
 }
@@ -70,16 +70,15 @@
   font-weight: 500;
   line-height: 2;
 }
-.steps-image {
+.steps-image{
   width: 45%;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 52vh;
+  max-height: 53vh;
+  background-image:url("/firstbite/steps.jpg") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:contain;
 }
-.steps-image img {
-  width: 100%;
-  height: 100%;
 
-  object-fit: cover;
-}

@@ -12,9 +12,19 @@ const Header = () => {
       setModal(false)
     }
     const navigate = useNavigate()
+    const menuNavigate = useNavigate()
+     const navigatehome = useNavigate()
+
     const handlenavigate = () => {
       navigate("/contact")
     }
+    const navigatetomenu = ()=> {
+      menuNavigate("/menu")
+    }
+   const navigatetohome = ()=> {
+    navigatehome("/")
+   }
+
   return (
     <div className='header-container'>
       <div className='header-wrapper'>
@@ -23,8 +33,8 @@ const Header = () => {
         </div>
         <div className='header-list'>
             <ul>
-                <li >Menu</li>
-                {/* <li className>Zones</li> */}
+                <li className onClick={navigatetohome}>Home</li>
+                <li onClick={navigatetomenu}>Menu</li>
                 <li className='' onClick={handlenavigate}>Contacts</li>
             </ul>
         </div>

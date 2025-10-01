@@ -52,7 +52,7 @@
 .Location_holder {
   width: 70%;
   height: 100%;
-  background-color: yellow;
+  /* background-color: yellow; */
   display: flex;
   align-items: center;
   /* justify-content: center; */
@@ -78,7 +78,7 @@
   justify-content: flex-end;
   align-items: center;
   gap: 15px;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .Input_holder_search {

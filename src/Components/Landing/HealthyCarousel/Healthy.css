@@ -70,3 +70,22 @@
     cursor: pointer;
     border: none;
 }
+
+@media (max-width: 1024px) {
+  .scroll img {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .healthy-text {
+    max-width: 100%;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .scroll img {
+    width: 180px;
+    height: 10rem;
+  }
+}

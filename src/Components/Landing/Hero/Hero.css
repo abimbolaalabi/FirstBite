@@ -92,3 +92,47 @@
 .hero-input button:hover {
   background-color: #ff9f40;
 }
+
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 42px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    height: 100vh; 
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+    width: 100%;        
+    text-align: center; 
+  }
+
+  .hero-input {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .hero-input-child {
+    width: 100%;
+  }
+
+  .herobtn,
+  .hero-btn {
+    width: 100%;   
+    text-align: center;
+  }
+}

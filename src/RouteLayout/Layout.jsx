@@ -5,7 +5,7 @@ import Footer from '../Components/Fixed/Footer/Footer'
 
 const Layout = () => {
   const location = useLocation()
-  const noHeaderRoutes = ["/profile", "/order"]
+  const noHeaderRoutes = ["/profile", "/order", "/menu"]
   return (
     <div>
       {!noHeaderRoutes.includes(location.pathname) &&  <Header/>}

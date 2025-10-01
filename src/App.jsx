@@ -7,6 +7,7 @@ import Contact from './Pages/Contact'
 import Menu from './Pages/Menu'
 import Profile from './Pages/Profile'
 import Order from './Pages/Order'
+import NewMenu from './Pages/NewMenu'
 function App() {
 
 
@@ -17,6 +18,7 @@ function App() {
          <Route index  element={<Home/>}/>
          <Route path='/contact' element={<Contact/>}/>
          <Route path='/menu' element={<Menu/>}/>
+         <Route path='/newmenu' element={<NewMenu/>}/>
          <Route path ='/profile' element={<Profile/>}/>
          <Route path='/order' element={<Order/>}/>
        </Route>

@@ -2,17 +2,22 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: 80vh;
+  height: 90vh;
   padding: 0 4rem;
   box-sizing: border-box;
 
-  background: 
-    linear-gradient(90deg, rgba(0, 0, 0, 0.5) 26.2%, rgba(255, 119, 0, 0.2) 100%), 
+  background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.5) 26.2%,
+      rgba(255, 119, 0, 0.2) 100%
+    ),
     url("/firstbite/hero.jpg");
 
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 .hero-content {
   max-width: 700px;
@@ -52,22 +57,33 @@
   margin-right: 10px;
 }
 
-.hero-input input {
+/* .hero-input input {
   border: none;
   outline: none;
   flex: 1;
   font-size: 1.1rem;
-}
+} */
 
-
-
-.hero-input button {
+.herobtn {
   background-color: #ff7700;
   border: none;
-  padding:  1rem;
+ padding: 14px 36px;
+ color: #fff;
   border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+.hero-btn {
+  background-color: #fff;
+  color: black;
+  border: none;
+  padding: 14px 38px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
   transition: background 0.3s ease;
   white-space: nowrap;
@@ -75,4 +91,48 @@
 
 .hero-input button:hover {
   background-color: #ff9f40;
+}
+
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 42px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    height: 100vh; 
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+    width: 100%;        
+    text-align: center; 
+  }
+
+  .hero-input {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .hero-input-child {
+    width: 100%;
+  }
+
+  .herobtn,
+  .hero-btn {
+    width: 100%;   
+    text-align: center;
+  }
 }

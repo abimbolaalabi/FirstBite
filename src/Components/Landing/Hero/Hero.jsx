@@ -14,14 +14,15 @@ const Hero = () => {
                 </h1>
 
                 <div className="hero-input">
-                    <div className="hero-input-child">
+                    {/* <div className="hero-input-child">
                         <CiLocationOn className="location" />
                         <input
                             type="text"
                             placeholder="Enter delivery address (e.g.Mile 2)"
                         />
-                    </div>
-                    <button>Use Current Location</button>
+                    </div> */}
+                    <button className="herobtn">Sign Up</button>
+                    <button className="hero-btn">Sign in</button>
                 </div>
             </div>
         </section>

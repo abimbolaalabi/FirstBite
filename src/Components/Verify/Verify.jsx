@@ -39,17 +39,17 @@ const Verify = ({ closeModal, switchToVerify }) => {
 
   return (
     <form className="frm" onSubmit={handleSubmit}>
-      <div className="log">
+      <div className="box">
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <IoCloseOutline size={25} onClick={closeModal} />
         </div>
-        <h3 className="login">Verification</h3>
-        <h4 className="login_to">
+        <h3 className="verify">Verification</h3>
+        <h4 className="verify1">
           A verification code has been sent to your email address <br />
           Please enter to continue
         </h4>
 
-        <div className="pass">
+        <div className="codes_box">
           <input
             type="text"
             name="code1"
@@ -92,7 +92,7 @@ const Verify = ({ closeModal, switchToVerify }) => {
                      
                     <p style={{ textAlign: "center", fontSize: "14px" }}>
                          Resend Code in{" "}
-                     <span style={{ color: "black", cursor: "pointer" }}>01:59</span>
+                     <span style={{ color: "black", cursor: "pointer", fontWeight:"600" }}>01:59</span>
                      </p>
             </div>
 

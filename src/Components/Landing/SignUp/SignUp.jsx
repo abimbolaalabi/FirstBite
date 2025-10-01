@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import "./SignUp.css";
 
-const SignUp = ({ closeModal, switchToLogin }) => {
+const SignUp = ({ closeModal,switchToVerify, switchToLogin }) => {
   const [formData, setFormData] = useState({
     email: "",
     phoneNumber: "",
@@ -87,10 +87,13 @@ const SignUp = ({ closeModal, switchToLogin }) => {
           name="phoneNumber"
           value={formData.phoneNumber}
           placeholder="+234"
-          onChange={handleChange}
+          onChange={(e)=>{
+            const digits = e.target.value.replace(/\D/d,"")
+            setFormData((p)=>{return{...p, phoneNumber:digits}})
+          }}
           required
         />
-        <p className="error">{errors.phoneNumber}</p>
+        {errors.phoneNumber &&<p className="error">{errors.phoneNumber}</p>}
       </div>
 
       <div className="psw">
@@ -120,7 +123,7 @@ const SignUp = ({ closeModal, switchToLogin }) => {
       </div>
 
       <div className="log_al">
-        <button type="submit" className="log_atl_log">Sign Up</button>
+        <button onClick={switchToVerify} type="submit" className="log_atl_log">Sign Up</button>
       </div>
 
       <p className="acct">
@@ -129,7 +132,7 @@ const SignUp = ({ closeModal, switchToLogin }) => {
           style={{ color: "#ff7700", cursor: "pointer" }}
           onClick={switchToLogin}
         >
-          Login here
+          Sign in
         </span>
       </p>
     </form>

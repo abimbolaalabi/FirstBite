@@ -15,6 +15,7 @@ const Modal = ({ closeModal }) => {
       {view === "signup" && (
         <SignUp
           closeModal={closeModal}
+          switchToVerify={()=>setView("verify")}
           switchToLogin={() => setView("login")}
           switchToForgot={() => setView("forgot")}
         />

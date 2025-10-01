@@ -37,6 +37,7 @@ const Modal = ({ closeModal }) => {
       {view === "verify" && (
         <Verify
         closeModal={closeModal} 
+        switchToVerify={()=> setView("verify")}
         />
       )}
     </div>

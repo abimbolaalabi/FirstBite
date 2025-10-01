@@ -6,6 +6,7 @@ import {
   MdOutlineMailOutline,
 } from "react-icons/md";
 import { FaRegUser, FaRegEdit } from "react-icons/fa";
+import { CiLocationOn } from "react-icons/ci";
 import { IoSearchOutline, IoCallOutline } from "react-icons/io5";
 
 const Profile = () => {
@@ -19,15 +20,18 @@ const Profile = () => {
             </div>
 
             <div className="Location_holder">
-              <img src="" alt="" />
+              <CiLocationOn className="location_icon" />
               <p>Mile 2, Blue Rail Train Station, Lagos Nigeria</p>
             </div>
           </div>
           <div className="Profile_wrap2">
             <div className="Input_holder_search">
-              <div>
+              <div className="Input_search_container">
                 <IoSearchOutline />
-                <input type="text" />
+                <input
+                  type="text"
+                  placeholder="what would you like for breakfast?"
+                />
               </div>
             </div>
             <div className="profile_cart_icon">
@@ -145,7 +149,7 @@ const Profile = () => {
                 <div className="User_info_container">
                   <div className="user_edit_holder">
                     <article className="User_edit_icon">
-                      <MdOutlineMailOutline />
+                      <CiLocationOn />
                     </article>
                     <aside className="user_input_field_edit">
                       <label

@@ -50,3 +50,75 @@
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
 }
+
+@media (max-width: 1024px) {
+  .delivery-locations {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.deliver {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.deliver h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.deliver-map {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.deliver-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: left;
+}
+
+.deliver-column h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ff7700;
+}
+
+.deliver-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.deliver-column li {
+  font-size: 15px;
+  margin-bottom: 0.6rem;
+  color: #555;
+}
+
+
+@media (max-width: 1024px) {
+  .deliver-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .deliver-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .deliver-column h3 {
+    text-align: center;
+  }
+}

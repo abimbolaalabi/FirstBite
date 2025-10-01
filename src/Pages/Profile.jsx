@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Profile.css";
 import {
   MdShoppingCart,
@@ -8,8 +8,10 @@ import {
 import { FaRegUser, FaRegEdit } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import { IoSearchOutline, IoCallOutline } from "react-icons/io5";
+import ProfileDrop from "../Components/Dropdown/ProfileDrop";
 
 const Profile = () => {
+  const [dropDown, setDropDown] = useState(false);
   return (
     <div className="Profile_body">
       <div className="Profile_Container">
@@ -44,12 +46,14 @@ const Profile = () => {
                 </div>
               </div>
               <div className="profile_user_icon">
-                <FaRegUser />
+                <FaRegUser onClick={() => setDropDown(true)} />
               </div>
             </div>
           </div>
         </div>
+        {dropDown && <ProfileDrop toclose={setDropDown} />}
       </div>
+
       <section className="Profile_page_body">
         <div className="Profile_wrapper_holder">
           <article className="profile_heading">

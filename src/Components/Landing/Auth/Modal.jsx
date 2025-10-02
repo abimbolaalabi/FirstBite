@@ -4,13 +4,15 @@ import SignUp from "../SignUp/SignUp";
 import ForgotPassword from "../Forget/ForgotPassword";
 import Verify from "../../Verify/Verify";
 import Address from "../../Address/Address";
+import Loading from "../../Loading/Loading"; 
 
 const Modal = ({ closeModal }) => {
   const [view, setView] = useState("signup"); 
+  const [address, setAddress] = useState("");
 
-  const handleSaveAddress = (address) => {
-    console.log("Saved delivery address:", address);
-    closeModal(); 
+  const handleSaveAddress = (value) => {
+    setAddress(value);
+    setView("loading");
   };
 
   return (
@@ -51,6 +53,15 @@ const Modal = ({ closeModal }) => {
         <Address
           closeModal={closeModal}
           onSave={handleSaveAddress} 
+        />
+      )}
+
+      {view === "loading" && (
+        <Loading
+          onSave={(msg) => {
+            console.log("Saved delivery address:", address, msg);
+          }}
+          closeModal={closeModal}
         />
       )}
     </div>

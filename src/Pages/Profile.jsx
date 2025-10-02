@@ -27,7 +27,7 @@ const Profile = () => {
             </div>
           </div>
           <div className="Profile_wrap2">
-            <div className="Input_holder_search">
+            <div className="Input_holder_search_profile">
               <div className="Input_search_container">
                 <IoSearchOutline />
                 <input

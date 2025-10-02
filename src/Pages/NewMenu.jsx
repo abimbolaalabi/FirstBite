@@ -4,16 +4,16 @@ import axios from 'axios'
 import { FaPlus } from "react-icons/fa";
 
 const NewMenu = () => {
-  const [categories, setcategories] = useState([])
+  const [category, setcategory] = useState([])
   const [products, setProducts] = useState([])
   const [filteredProduct, setFilteredProduct] = useState([])
   const [categorySelected, setCategorySelected] = useState("all")
   const [loading, setLoading] = useState(false)
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("https://fakestoreapi.com/products/categories")
-      setcategories(response.data)
-      console.log(response.data)
+      const response = await axios.get("https://group2-firstbite-project.onrender.com/product/categories")
+      setcategory(response.data.data)
+      console.log(response.data.data)
     } catch (error) {
       console.log(error)
     }
@@ -22,10 +22,10 @@ const NewMenu = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true)
-      const response = await axios.get("https://fakestoreapi.com/products")
-      setProducts(response.data)
-      setFilteredProduct(response.data)
-      console.log(response.data)
+      const response = await axios.get("https://group2-firstbite-project.onrender.com/product")
+      setProducts(response.data.data)
+      setFilteredProduct(response.data.data)
+      console.log(response.data.data)
     } catch (error) {
       console.log(error)
     } finally {
@@ -53,7 +53,7 @@ const NewMenu = () => {
           <div className='new-menu-btn'>
             <button onClick={() => setCategorySelected("all")}>All</button>
             {
-              categories.map((item, index) => <button onClick={() => setCategorySelected(item)} key={index}>{item}</button>)
+              category.map((item, _id) => <button onClick={() => setCategorySelected(item)} key={item._id}>{item}</button>)
             }
           </div>
 
@@ -62,13 +62,13 @@ const NewMenu = () => {
               <div  className= "card-wrapper">
                 {
                   filteredProduct.map((product) => (
-                    <div className='new-menu-card' key={product.id}>
+                    <div className='new-menu-card' key={product._id}>
                       <div className='new-menu-img'>
                         <p>{product.category}</p>
                       </div>
                       <div className='new-menu-textwrapper'>
                         <div className='new-menu-text'>
-                          <p>{product.title}</p>
+                          <p>{product.description}</p>
                           <h4>NGN 3,500</h4>
                         </div>
                         <div className='new-menu-add'>

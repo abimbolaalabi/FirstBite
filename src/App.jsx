@@ -8,6 +8,7 @@ import Menu from './Pages/Menu'
 import Profile from './Pages/Profile'
 import Order from './Pages/Order'
 import NewMenu from './Pages/NewMenu'
+import OrderSummary from './Pages/OrderSummary'
 function App() {
 
 
@@ -21,6 +22,7 @@ function App() {
          <Route path='/newmenu' element={<NewMenu/>}/>
          <Route path ='/profile' element={<Profile/>}/>
          <Route path='/order' element={<Order/>}/>
+         <Route path='/ordersummary' element={<OrderSummary/>}/>
        </Route>
 
 

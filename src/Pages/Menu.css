@@ -115,7 +115,7 @@
   color: #686666;
 }
 
-.profile_cart_icon {
+.menu_cart_icon {
   width: 93px;
   height: 46px;
   /* background-color: red; */
@@ -205,9 +205,15 @@
   align-items: center;
   flex-direction: column;
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.63);
 }
 
-
+.menu-pic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
 
 .menu-pic h1,
 .menu-pic p {

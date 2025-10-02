@@ -55,7 +55,7 @@ const NewMenu = () => {
             {
               category.map((item, _id) => <button onClick={() => setCategorySelected(item)} key={item._id}>{item}</button>)
             }
-          </div>g
+          </div>
 
           {
             loading ? (<p>Loading...</p>) : (

@@ -52,13 +52,13 @@ const ForgotPassword = ({ closeModal, switchToVerify }) => {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-          <button type="submit" className="btn1">
+          <button onClick={switchToVerify} type="submit" className="btn1">
             Send verification code
           </button>
           <p style={{ textAlign: "center", fontSize: "14px" }}>
             Remember password?{" "}
             <span
-              onClick={switchToVerify}
+              
               style={{ color: "#ff7700", cursor: "pointer" }}
             >
               Sign in

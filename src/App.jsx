@@ -21,6 +21,7 @@ function App() {
          <Route path='/newmenu' element={<NewMenu/>}/>
          <Route path ='/profile' element={<Profile/>}/>
          <Route path='/order' element={<Order/>}/>
+         <Route path=''/>
        </Route>
 
 

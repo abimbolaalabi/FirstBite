@@ -34,13 +34,17 @@
 }
 .header-list ul li {
   font-size: 16px;
-  font-weight: 400;
+  /* font-weight: 400; */
   list-style: none;
   font-family: Montserrat;
   cursor: pointer;
 }
+.header-list ul li:hover {
+  color: #ff7700;
+}
 .active {
   color: #ff7700;
+  font-weight: bolder;
 }
 .menu {
   color: black;

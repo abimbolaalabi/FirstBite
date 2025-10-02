@@ -57,7 +57,7 @@ const Header = () => {
               onClick={handlenavigate}
               className={active === "contact" ? "active" : ""}
             >
-              Contacts
+              Contact
             </li>
 
             <li className="mobile-btn">

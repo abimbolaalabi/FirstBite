@@ -123,6 +123,7 @@ const Menu = () => {
               </div>
               <div className="menu_user_icon">
                 <FaRegUser />
+                <div className="profile-dropdown"></div>
               </div>
             </div>
           </div>

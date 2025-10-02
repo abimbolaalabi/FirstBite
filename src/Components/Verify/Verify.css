@@ -1,21 +1,21 @@
-/* Verify.css
+Verify.css
 
-.frm {
-  width: 100%;
-  max-width: 380px;
-  background: #fff;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-  margin: auto;
-  font-family: "Poppins", sans-serif;
+.frm{
+    background: white;
+    min-width: 550px;
+    min-height: 75vh;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
 }
 
-.log {
+.box {
   margin-bottom: 1.5rem;
 }
 
-.login {
+.verify {
   font-size: 1.6rem;
   font-weight: 600;
   text-align: center;
@@ -23,7 +23,7 @@
   color: #333;
 }
 
-.login_to {
+.verify1 {
   font-size: 0.9rem;
   text-align: center;
   color: #666;
@@ -31,15 +31,16 @@
   line-height: 1.4;
 }
 
-.pass {
+.codes_box {
   display: flex;
   justify-content: center;
   gap: 1.8rem;
   margin: 3rem 0;
   flex-direction: row;
+  min-width: 20px;
 }
 
-.pass input {
+.codes_box input {
   width: 4rem;
   height: 4rem;
   font-size: 1.5rem;
@@ -68,26 +69,14 @@
   color: #fff;
   padding: 0.8rem;
   border: none;
+  width: 400px;
   border-radius: 8px;
+  margin: 0 auto;
+
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
+
   transition: background 0.3s ease;
 }
 
-.btn1:hover {
-  background: #e86600;
-}
-
-.btn1:disabled {
-  background: #ffb380;
-  cursor: not-allowed;
-}
-
-p {
-  margin: 0;
-}
-
-p span {
-  font-weight: 500;
-} */

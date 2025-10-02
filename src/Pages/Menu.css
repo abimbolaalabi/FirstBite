@@ -169,6 +169,14 @@
   font-size: 30px;
   color: white;
   cursor: pointer;
+  position: relative;
+}
+.profile-dropdown{
+  width: 10rem;
+  height: 8rem;
+  background-color: #ff7700;
+  position: absolute;
+
 }
 .menu-container {
   width: 100%;
@@ -348,3 +356,4 @@
   font-size: 10rem;
   color: #aaa;
 }
+

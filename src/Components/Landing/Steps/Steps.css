@@ -1,20 +1,22 @@
 .steps-container {
-  min-height: 70vh;
- 
+  min-height: max-content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  margin-top: 40px;
-  margin-bottom: 50px;
+  margin: 3rem;
+  /* margin-bottom: 50px; */
 }
 .steps-contained {
   max-width: 90%;
+  height: max-content;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 .steps-text {
-  margin-bottom: 30px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -36,14 +38,16 @@
   font-weight: 500;
 }
 .steps-wrapper {
+  height: max-content;
+  /* background: red; */
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  width: 100%;
+  gap: 3rem;
+  flex-wrap: wrap;
 }
 .steps-wrapped {
-  width: 45%;
+  width: 55%;
   min-height: 50vh;
-
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -51,15 +55,15 @@
 .first-step,
 .second-step,
 .third-step {
-  height: 30%;
+  height: max-content;
   margin-top: 10px;
   padding: 10px;
   border: 1px solid #ececec;
-
+  padding: 1rem;
 }
 .first-step h4,
 .second-step h4,
-.third-step h4{
+.third-step h4 {
   font-size: 20px;
   font-weight: 700;
 }
@@ -70,15 +74,53 @@
   font-weight: 500;
   line-height: 2;
 }
-.steps-image{
-  width: 45%;
+.steps-image {
+  width: 40%;
+  height: 40rem;
   display: flex;
   justify-content: center;
   align-items: center;
   max-height: 53vh;
-  background-image:url("/firstbite/steps.jpg") ;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position:contain;
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
+@media only screen and (max-width: 1043px) {
+  .steps-wrapped {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* background-color: yellow; */
+  }
+  .first-step,
+  .second-step,
+  .third-step {
+    height: max-content;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ececec;
+    padding: 1rem;
+  }
+
+  .steps-image {
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 460px;
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+}

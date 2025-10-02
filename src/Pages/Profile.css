@@ -7,10 +7,11 @@
 
 .Profile_Container {
   width: 100%;
-  height: 100px;
+  height: auto; /* removed fixed height */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px 0;
 }
 
 .Profile_wrapper {
@@ -24,15 +25,13 @@
 
 .Profile_wrap1 {
   width: 60%;
-  height: 100%;
+  min-width: 200px;
   display: flex;
   gap: 10px;
 }
 
 .Bite_logo {
   width: 30%;
-  height: 100%;
-  /* background-color: yellow;  */
   display: flex;
   align-items: center;
 }
@@ -42,7 +41,6 @@
   font-size: 24px;
   font-family: Agbalumo;
   background: linear-gradient(130deg, #ff7700 20%, #fff04c 50%, #ff7700 80%);
-
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -51,11 +49,8 @@
 
 .Location_holder {
   width: 70%;
-  height: 100%;
-  /* background-color: yellow; */
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   gap: 8px;
 }
 
@@ -67,28 +62,21 @@
 .Location_holder p {
   font-size: 16px;
   color: #222222;
-  font: 500;
+  font-weight: 500;
   font-family: Montserrat;
 }
 
 .Profile_wrap2 {
   width: 40%;
-  height: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 15px;
-  /* background-color: red; */
 }
 
-.Input_holder_search {
+.Input_holder_search_profile {
   width: 60%;
   height: 100%;
-  /* background-color: blue; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
   display: none;
 }
 
@@ -120,7 +108,6 @@
 .profile_cart_icon {
   width: 93px;
   height: 46px;
-  /* background-color: red; */
   display: flex;
   gap: 15px;
 }
@@ -128,7 +115,6 @@
 .cart_icon_holder {
   width: 50%;
   height: 100%;
-  /* background-color: blue; */
   border-radius: 10px;
   border: 2px solid #ff7700;
   display: flex;
@@ -175,11 +161,12 @@
 
 .Profile_page_body {
   width: 100%;
-  height: 80vh;
+  height: auto; /* allow content to grow */
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f0f1f3f3;
+  padding: 20px 0;
 }
 
 .Profile_wrapper_holder {
@@ -189,18 +176,15 @@
 
 .profile_heading {
   width: 100%;
-  height: 12%;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: green;
 }
 
 .go_to_menu {
   width: 30%;
-  height: 100%;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   font-size: 16px;
   color: #6b7280;
@@ -215,30 +199,29 @@
 
 .go_to_menu_profile {
   width: 30%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   color: #222222;
   font-weight: 600;
   font-size: 32px;
-  font-size: Montserrat;
+  font-family: Montserrat;
 }
 
 .Profile_input_holder {
   width: 100%;
-  height: 80%;
   background-color: white;
   margin-top: 20px;
   border-radius: 16px;
   border: 2px solid #e5e7eb;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
 }
 
 .Profile_input_content {
   width: 50%;
-  height: 100%;
+  min-width: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -247,24 +230,21 @@
 .User_holder {
   width: 95%;
   height: 95%;
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 4rem;
 }
 
 .User_info_container {
   width: 100%;
-  height: 25%;
-  /* background-color: green; */
   display: flex;
   gap: 10px;
   border-bottom: 1px solid #aaaaaa;
+  padding: 10px 0;
 }
 
 .user_edit_holder {
   width: 70%;
-  height: 70%;
   display: flex;
   align-items: center;
   gap: 15px;
@@ -272,12 +252,10 @@
 
 .user_edit_holder_icon {
   width: 30%;
-  height: 70%;
   display: flex;
-  /* justify-content: center; */
+  justify-content: flex-end;
   align-items: center;
   gap: 15px;
-  justify-content: flex-end;
 }
 
 .edit_holder_container {
@@ -294,22 +272,15 @@
 }
 
 .User_edit_icon {
-  width: 50px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 32px;
   color: #222222;
 }
 
 .user_input_field_edit {
   width: 80%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 3px;
-  justify-content: center;
 }
 
 .user_input_field_edit input {
@@ -321,34 +292,97 @@
   border: none;
 }
 
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet */
 @media screen and (max-width: 900px) {
-  .Location_holder {
+  .Profile_wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .Profile_wrap1,
+  .Profile_wrap2 {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .Profile_input_holder {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Profile_input_content {
     width: 100%;
   }
 
+  .go_to_menu_profile {
+    font-size: 22px;
+  }
+}
+
+/* Mobile large */
+@media screen and (max-width: 474px) {
+  .Profile_wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .Bite_logo p {
+    font-size: 20px;
+  }
+
   .Location_holder p {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .profile_cart_icon {
-    display: flex;
-    gap: 18px;
+    gap: 10px;
   }
 
-  .cart_count {
-    top: 2%;
-    right: 10%;
+  .go_to_menu {
+    width: 100%;
+    font-size: 14px;
   }
 
   .go_to_menu_profile {
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
-@media screen and (max-width: 474px) {
+/* Mobile medium */
+@media screen and (max-width: 414px) {
+  .Profile_input_holder {
+    padding: 10px;
+  }
+
+  .User_holder {
+    gap: 5px;
+  }
+
+  .user_input_field_edit input {
+    font-size: 14px;
+  }
 }
 
-@media screen and (max-width: 414px) {
-}
+/* Mobile small */
 @media screen and (max-width: 320px) {
+  .Bite_logo p {
+    font-size: 18px;
+  }
+
+  .Location_holder p {
+    font-size: 12px;
+  }
+
+  .cart_count {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+
+  .User_edit_icon {
+    font-size: 24px;
+  }
 }

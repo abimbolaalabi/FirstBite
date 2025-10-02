@@ -14,10 +14,39 @@ const Menu = () => {
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [categorySelected, setCategorySelected] = useState("all");
   const [loading, setLoading] = useState(false);
+  const userId = JSON.parse(sessionStorage.getItem("userId"));
+  const [user, setUser] = useState(null);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  // console.log("this is the user", products);
 
-  const BaseUrl = "https://group2-firstbite-project.onrender.com/product/categories";
+  const BaseUrl =
+    "https://group2-firstbite-project.onrender.com/product/categories";
   const Base_Url = "https://group2-firstbite-project.onrender.com/product";
+  const BaseUrlUser = `https://group2-firstbite-project.onrender.com/user/${userId}`;
 
+  // Handle selecting an address from suggestions
+  const handleGetUserdata = async () => {
+    try {
+      const res = await axios.get(BaseUrlUser);
+      setUser(res?.data?.data);
+    } catch (err) {
+      console.log("this s the post error", err);
+    }
+  };
+  const getGreeting = () => {
+    const hour = currentTime.getHours();
+    if (hour < 12) {
+      return "Good Morning";
+    } else if (hour < 18) {
+      return "Good Afternoon";
+    } else if (hour < 18) {
+      return "Good Afternoon";
+    } else if (hour < 23) {
+      return "Good Evening";
+    } else {
+      return "Good Night";
+    }
+  };
   // Fetch Categories
   const fetchCategories = async () => {
     try {
@@ -45,6 +74,8 @@ const Menu = () => {
   useEffect(() => {
     fetchCategories();
     fetchProducts();
+    handleGetUserdata();
+    getGreeting();
   }, []);
 
   useEffect(() => {
@@ -57,7 +88,6 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-  
       <div className="menu_Container">
         <div className="menu_wrapper">
           <div className="menu_wrap1">
@@ -67,7 +97,7 @@ const Menu = () => {
 
             <div className="Location_holder">
               <CiLocationOn className="location_icon" />
-              <p>Mile 2, Blue Rail Train Station, Lagos Nigeria</p>
+              <p>{user?.deliveryAddress || "No Address Set"}</p>
             </div>
           </div>
 
@@ -101,7 +131,7 @@ const Menu = () => {
 
       <div className="menu-section">
         <div className="menu-items">
-          <h1>Good Morning, Princess Ijabken!!</h1>
+          <h1>{`${getGreeting()}, ${user ? user.fullName : "Guest"}!!`}</h1>
           <div className="menu-pic">
             <h1>Menu</h1>
             <p>
@@ -132,26 +162,33 @@ const Menu = () => {
             {loading ? (
               <p>Loading...</p>
             ) : (
-              filteredProduct.map((product) => (
-                <div className="menu-card" key={product._id}>
-                  <div
-                    className="menu-img"
-                    style={{ backgroundImage: `url(${product.image})` }}
-                  >
-                    <p>{product.category}</p>
-                  </div>
+              filteredProduct?.map((product) => {
+                {
+                  /* console.log("product", product.productImages[0].imageUrl); */
+                }
+                return (
+                  <div className="menu-card" key={product._id}>
+                    <div
+                      className="menu-img"
+                      style={{
+                        backgroundImage: `url(${product?.productImages[0]?.imageUrl})`,
+                      }}
+                    >
+                      <p>{product.category}</p>
+                    </div>
 
-                  <div className="menu-textwrapper">
-                    <div className="menu-text">
-                      <p>{product.description}</p>
-                      <h4>NGN {product.price}</h4>
-                    </div>
-                    <div className="menu-add">
-                      <FaPlus />
+                    <div className="menu-textwrapper">
+                      <div className="menu-text">
+                        <p>{product.description}</p>
+                        <h4>NGN {product.price}</h4>
+                      </div>
+                      <div className="menu-add">
+                        <FaPlus />
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))
+                );
+              })
             )}
           </div>
         </div>
@@ -161,7 +198,7 @@ const Menu = () => {
           <h2>Cart</h2>
           <p>No Orders Yet</p>
           <p>Add items to cart to view here</p>
-           <IoCartOutline className="cart"/>
+          <IoCartOutline className="cart" />
         </div>
       </div>
     </div>

@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
+import axios from "axios";
 import "./Verify.css";
+import toast from "react-hot-toast";
 
-const Verify = ({ closeModal,  switchToAddress }) => {
+const Verify = ({ closeModal, switchToAddress }) => {
   const [formData, setFormData] = useState({
     code1: "",
     code2: "",
     code3: "",
     code4: "",
   });
+  const [loading, setLoading] = useState(false);
+
+  const token = JSON.parse(sessionStorage.getItem("token"));
+
+  const BaseUrl = `https://group2-firstbite-project.onrender.com/verify/${token}`;
+  console.log(BaseUrl);
 
   const [error, setError] = useState("");
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (/^[0-9]?$/.test(value)) {
@@ -20,21 +27,42 @@ const Verify = ({ closeModal,  switchToAddress }) => {
     }
   };
 
-  
   const handleSubmit = (e) => {
     e.preventDefault();
-    const code = formData.code1 + formData.code2 + formData.code3 + formData.code4;
+    verifyCode();
+  };
 
-    if (code.length < 4) {
+  const verifyCode = async () => {
+    const otp =
+      formData.code1 + formData.code2 + formData.code3 + formData.code4;
+    console.log(otp);
+
+    if (otp.length < 4) {
       setError("Please enter all 4 digits");
       return;
     }
 
-    console.log("✅ Verification Code:", code);
-    alert("Verification successful!");
-    setFormData({ code1: "", code2: "", code3: "", code4: "" });
-    setError("");
-    closeModal();
+    try {
+      setLoading(true);
+      const response = await axios.post(BaseUrl, { otp });
+      console.log("Verification successful:", response.data);
+      toast.success(response?.message || "Verification successful!");
+      switchToAddress();
+      setError("");
+      setFormData({ code1: "", code2: "", code3: "", code4: "" });
+      // closeModal();
+    } catch (err) {
+      setLoading(false);
+      console.error("Error verifying code:", err);
+      toast.error(
+        err.response?.data?.message ||
+          "An error occurred. Please try again later."
+      );
+      // setError(
+      //   err.response?.data?.message ||
+      //     "An error occurred. Please try again later."
+      // );
+    }
   };
 
   return (
@@ -83,19 +111,24 @@ const Verify = ({ closeModal,  switchToAddress }) => {
             required
           />
         </div>
-        <p className="error">{error}</p>
+        {/* <p className="error">{error}</p> */}
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-                 <button onClick={switchToAddress} type="submit" className="btn1">
-                     Verify
-                    </button>
-                     
-                    <p style={{ textAlign: "center", fontSize: "14px" }}>
-                         Resend Code in{" "}
-                     <span style={{ color: "black", cursor: "pointer", fontWeight:"600" }}>01:59</span>
-                     </p>
-            </div>
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
+        >
+          <button type="submit" className="btn1">
+            {loading ? "Verifying..." : "Verify"}
+          </button>
 
+          <p style={{ textAlign: "center", fontSize: "14px" }}>
+            Resend Code in{" "}
+            <span
+              style={{ color: "black", cursor: "pointer", fontWeight: "600" }}
+            >
+              01:59
+            </span>
+          </p>
+        </div>
       </div>
     </form>
   );

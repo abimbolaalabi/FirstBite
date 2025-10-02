@@ -174,9 +174,8 @@
   width: 100%;
   min-height: 100vh;
   background-color: #fff;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-
 
 .menu-section {
   display: flex;
@@ -260,8 +259,8 @@
 }
 
 .menu-card-wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
   gap: 20px;
 }
 
@@ -270,13 +269,11 @@
   height: 400px;
   background: #fff;
   border: 1px solid green;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border-radius: 7px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: transform 0.2s;
 }
-
-
 
 .menu-img {
   width: 100%;
@@ -287,12 +284,13 @@
 }
 
 .menu-img p {
-  position: absolute; 
+  position: absolute;
   font-size: 12px;
   padding: 3px 8px;
-  border-radius: 6px;
+  border-radius: 7px 0px 7px 0px;
   font-weight: 500;
   border: 1px solid pink;
+  background-color: #ffffffdf;
 }
 
 .menu-textwrapper {
@@ -306,7 +304,7 @@
   font-size: 16px;
   font-weight: 500;
   padding: 10px;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 .menu-text h4 {
@@ -318,7 +316,7 @@
 
 .menu-add {
   background: #ff7700;
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px;
   /* color: white; */
   cursor: pointer;
@@ -326,7 +324,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 .menu-cart {
   width: 25%;
@@ -347,7 +344,7 @@
   font-size: 14px;
 }
 
-.menu-cart .cart{
-    font-size: 10rem;
-      color: #aaa;
+.menu-cart .cart {
+  font-size: 10rem;
+  color: #aaa;
 }

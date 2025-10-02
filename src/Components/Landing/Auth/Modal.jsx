@@ -6,11 +6,11 @@ import Verify from "../../Verify/Verify";
 import Address from "../../Address/Address";
 
 const Modal = ({ closeModal }) => {
-  const [view, setView] = useState("signup"); 
+  const [view, setView] = useState("signup");
 
   const handleSaveAddress = (address) => {
     console.log("Saved delivery address:", address);
-    closeModal(); 
+    closeModal();
   };
 
   return (
@@ -21,6 +21,7 @@ const Modal = ({ closeModal }) => {
           switchToVerify={() => setView("verify")}
           switchToLogin={() => setView("login")}
           switchToForgot={() => setView("forgot")}
+          // switchToAddress={() => setView("address")}
         />
       )}
 
@@ -35,23 +36,20 @@ const Modal = ({ closeModal }) => {
       {view === "forgot" && (
         <ForgotPassword
           closeModal={closeModal}
-          switchToVerify={() => setView("verify")} 
-          switchToAddress={() => setView("address")} 
+          switchToVerify={() => setView("verify")}
+          switchToAddress={() => setView("address")}
         />
       )}
 
       {view === "verify" && (
         <Verify
           closeModal={closeModal}
-          switchToAddress={() => setView("address")} 
+          switchToAddress={() => setView("address")}
         />
       )}
 
       {view === "address" && (
-        <Address
-          closeModal={closeModal}
-          onSave={handleSaveAddress} 
-        />
+        <Address closeModal={closeModal} onSave={handleSaveAddress} />
       )}
     </div>
   );

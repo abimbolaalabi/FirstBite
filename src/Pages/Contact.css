@@ -245,3 +245,32 @@
 .Media_icon_img {
   font-size: 30px;
 }
+/* Tablet & below: stack inputs and message first, then Get in Touch last */
+@media only screen and (max-width: 1040px) {
+  .Contact_form_container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .Form_container {
+    width: 100%;
+    order: 1;
+  }
+
+  .Message_container {
+    flex-direction: column;
+    height: auto;
+    order: 2;
+  }
+
+  .Message_input_holder,
+  .social_media_holder {
+    width: 100%;
+  }
+
+  .Contact_info_container {
+    width: 100%;
+    order: 3;
+    margin-top: 20px;
+  }
+}

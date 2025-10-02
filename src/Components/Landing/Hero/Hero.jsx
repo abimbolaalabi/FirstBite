@@ -1,28 +1,28 @@
 import React from "react";
 import "./Hero.css";
 import { CiLocationOn } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+
+    const navigate = useNavigate()
+
+    const handleNavigate = () => {
+        navigate("/newmenu")
+    }
     return (
         <section className="hero">
             <div className="hero-content">
                 <h1 className="">
                     Delicious breakfast
-                    delivered fresh to your 
+                    delivered fresh to your
                     doorstep every <br />
                     morning
                 </h1>
 
                 <div className="hero-input">
-                    {/* <div className="hero-input-child">
-                        <CiLocationOn className="location" />
-                        <input
-                            type="text"
-                            placeholder="Enter delivery address (e.g.Mile 2)"
-                        />
-                    </div> */}
-                    <button className="herobtn">Sign Up</button>
-                    <button className="hero-btn">Sign in</button>
+                    <button className="herobtn" onClick={handleNavigate}>Explore Now</button>
+
                 </div>
             </div>
         </section>

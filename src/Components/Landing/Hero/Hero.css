@@ -57,12 +57,6 @@
   margin-right: 10px;
 }
 
-/* .hero-input input {
-  border: none;
-  outline: none;
-  flex: 1;
-  font-size: 1.1rem;
-} */
 
 .herobtn {
   background-color: #ff7700;
@@ -76,18 +70,7 @@
   transition: background 0.3s ease;
   white-space: nowrap;
 }
-.hero-btn {
-  background-color: #fff;
-  color: black;
-  border: none;
-  padding: 14px 38px;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  white-space: nowrap;
-}
+
 
 .hero-input button:hover {
   background-color: #ff9f40;
@@ -130,8 +113,7 @@
     width: 100%;
   }
 
-  .herobtn,
-  .hero-btn {
+  .herobtn {
     width: 100%;   
     text-align: center;
   }

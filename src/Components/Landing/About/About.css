@@ -1,12 +1,12 @@
 .about-container {
-  min-height: auto; 
+  min-height: auto;
   display: flex;
   flex-direction: column;
   font-family: Montserrat;
   justify-content: center;
   align-items: center;
-  padding: 60px 30px; /* Increased top/bottom padding */
-  margin-top: 0; 
+  padding: 60px 30px;
+  margin-top: 0;
 }
 .about-container p {
   display: flex;
@@ -23,6 +23,7 @@
   font-size: 19px;
   text-align: center;
   margin: auto;
+  line-height: 30px;
 }
 .about-text {
   margin-bottom: 20px;
@@ -31,6 +32,8 @@
   display: flex;
   gap: 10px;
   justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 }
 .first-category,
 .second-category,
@@ -131,7 +134,6 @@
   }
 }
 
-
 @media (max-width: 768px) {
   .about-container {
     padding: 30px 20px;
@@ -184,7 +186,6 @@
     font-size: 13px;
   }
 }
-
 
 @media (max-width: 480px) {
   .about-container {

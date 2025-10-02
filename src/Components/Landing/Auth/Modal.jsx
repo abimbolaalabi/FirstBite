@@ -12,7 +12,11 @@ const Modal = ({ closeModal }) => {
 
   const handleSaveAddress = (value) => {
     setAddress(value);
-    setView("loading");
+    setView("loading"); // first show loading
+    setTimeout(() => {
+      console.log("Saved delivery address:", value);
+      closeModal(); // close modal after "loading"
+    }, 1500);
   };
 
   return (
@@ -37,30 +41,24 @@ const Modal = ({ closeModal }) => {
       {view === "forgot" && (
         <ForgotPassword
           closeModal={closeModal}
-          switchToVerify={() => setView("verify")} 
-          switchToAddress={() => setView("address")} 
+          switchToVerify={() => setView("verify")}
+          switchToAddress={() => setView("address")}
         />
       )}
 
       {view === "verify" && (
         <Verify
           closeModal={closeModal}
-          switchToAddress={() => setView("address")} 
+          switchToAddress={() => setView("address")}
         />
       )}
 
       {view === "address" && (
-        <Address
-          closeModal={closeModal}
-          onSave={handleSaveAddress} 
-        />
+        <Address closeModal={closeModal} onSave={handleSaveAddress} />
       )}
 
       {view === "loading" && (
         <Loading
-          onSave={(msg) => {
-            console.log("Saved delivery address:", address, msg);
-          }}
           closeModal={closeModal}
         />
       )}

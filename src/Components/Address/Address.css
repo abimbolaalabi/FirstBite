@@ -1,5 +1,5 @@
 .delivery-modal {
-  background:white;
+  background: white;
   padding: 20px;
   border-radius: 16px;
   min-width: 550px;
@@ -7,13 +7,12 @@
   margin: auto;
   text-align: center;
   position: relative;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.delivery-modal >h2{
-    margin-top: 50px;
+.delivery-modal > h2 {
+  margin-top: 50px;
 }
-
 
 .close-btn {
   position: absolute;
@@ -34,13 +33,12 @@
   margin-top: 50px;
 }
 
-
 .input-box .icon {
   margin-right: 8px;
   font-size: 18px;
 }
-.icon{
-    color: #ff6a00;
+.icon {
+  color: #ff6a00;
 }
 
 .input-box input {
@@ -57,3 +55,36 @@
   font-size: 1.1rem;
 }
 
+.suggestions-list {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  width: 100%;
+}
+
+.suggestion-item a:hover {
+  background-color: #f9f9f9;
+  color: #ff6a00;
+}

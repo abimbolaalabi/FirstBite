@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import "./SignUp.css";
+import axios from "axios";
 
 const SignUp = ({ closeModal, switchToLogin }) => {
   const [formData, setFormData] = useState({
+    fullName: "",
     email: "",
     phoneNumber: "",
     password: "",
@@ -11,17 +13,18 @@ const SignUp = ({ closeModal, switchToLogin }) => {
   });
 
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  
   const validate = () => {
     let newErrors = {};
-
+    if (!formData.fullName) {
+      newErrors.fullName = "Full Name is required";
+    }
     if (!formData.email.includes("@")) {
       newErrors.email = "Invalid email";
     }
@@ -41,19 +44,29 @@ const SignUp = ({ closeModal, switchToLogin }) => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const BaseUrl = "https://group2-firstbite-project.onrender.com/signUp";
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validate()) {
-      console.log("✅ Sign Up Data:", formData);
-      alert("Sign up successful!");
-      setFormData({
-        email: "",
-        phoneNumber: "",
-        password: "",
-        confirmPassword: "",
-      });
-      closeModal();
+    setLoading(true);
+    try {
+      if (validate()) {
+        const res = await axios.post(BaseUrl, formData);
+        console.log("this s the res", res);
+        // console.log("✅ Sign Up Data:", formData);
+        // alert("Sign up successful!");
+        closeModal();
+        setFormData({
+          fullName: "",
+          email: "",
+          phoneNumber: "",
+          password: "",
+          confirmPassword: "",
+        });
+      }
+    } catch (err) {
+      console.log("this s the post error", err);
+      setLoading(false);
     }
   };
 
@@ -67,6 +80,18 @@ const SignUp = ({ closeModal, switchToLogin }) => {
         <h4 className="login_to">Sign Up to continue</h4>
       </div>
 
+      <div className="body">
+        <label>Full Name</label>
+        <input
+          type="text"
+          name="fullName"
+          value={formData.fullName}
+          placeholder="Enter your Full Name"
+          onChange={handleChange}
+          required
+        />
+        <p className="error">{errors.fullName}</p>
+      </div>
       <div className="body">
         <label>Email</label>
         <input
@@ -120,7 +145,9 @@ const SignUp = ({ closeModal, switchToLogin }) => {
       </div>
 
       <div className="log_al">
-        <button type="submit" className="log_atl_log">Sign Up</button>
+        <button type="submit" className="log_atl_log" disabled={loading}>
+          {loading ? "Loading..." : " Sign Up"}
+        </button>
       </div>
 
       <p className="acct">

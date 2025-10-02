@@ -1,13 +1,9 @@
 .healthy-container {
-  min-height: 85vh;
-  padding: 20px 30px;
+  height: max-content;
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-  101.08deg,
-  #FF7700 56.38%,
-  #FAE019 99.91%
-);
+  background: linear-gradient(101.08deg, #ff7700 56.38%, #fae019 99.91%);
 }
 .healthy-container p {
   display: flex;
@@ -28,7 +24,7 @@
   font-weight: 500;
   font-size: 21px;
   text-align: center;
-   color: #fff;
+  color: #fff;
 }
 .carousel {
   width: 100%;
@@ -42,8 +38,8 @@
 }
 
 .scroll img {
-  width: 300px;       
-  height: 20rem; 
+  width: 300px;
+  height: 20rem;
   object-fit: cover;
   border-radius: 5px;
   flex-shrink: 0;
@@ -57,18 +53,19 @@
     transform: translateX(-50%);
   }
 }
-.healthy-btn{
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
+.healthy-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
-.healthy-btn button{
-    padding: 16px 30px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    border: none;
+.healthy-btn button {
+  padding: 16px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
 }
 
 @media (max-width: 1024px) {
@@ -78,6 +75,9 @@
 }
 
 @media (max-width: 768px) {
+  .healthy-container {
+    text-align: center;
+  }
   .healthy-text {
     max-width: 100%;
     padding: 0 10px;

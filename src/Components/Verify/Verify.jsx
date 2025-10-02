@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import "./Verify.css";
 
-const Verify = ({ closeModal, switchToVerify }) => {
+const Verify = ({ closeModal,  switchToAddress }) => {
   const [formData, setFormData] = useState({
     code1: "",
     code2: "",
@@ -86,7 +86,7 @@ const Verify = ({ closeModal, switchToVerify }) => {
         <p className="error">{error}</p>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-                 <button onClick={switchToVerify} type="submit" className="btn1">
+                 <button onClick={switchToAddress} type="submit" className="btn1">
                      Verify
                     </button>
                      

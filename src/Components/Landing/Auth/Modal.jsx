@@ -4,13 +4,19 @@ import SignUp from "../SignUp/SignUp";
 import ForgotPassword from "../Forget/ForgotPassword";
 import Verify from "../../Verify/Verify";
 import Address from "../../Address/Address";
+import Loading from "../../Loading/Loading"; 
 
 const Modal = ({ closeModal }) => {
-  const [view, setView] = useState("signup");
+  const [view, setView] = useState("signup"); 
+  const [address, setAddress] = useState("");
 
-  const handleSaveAddress = (address) => {
-    console.log("Saved delivery address:", address);
-    closeModal();
+  const handleSaveAddress = (value) => {
+    setAddress(value);
+    setView("loading"); // first show loading
+    setTimeout(() => {
+      console.log("Saved delivery address:", value);
+      closeModal(); // close modal after "loading"
+    }, 1500);
   };
 
   return (
@@ -21,7 +27,6 @@ const Modal = ({ closeModal }) => {
           switchToVerify={() => setView("verify")}
           switchToLogin={() => setView("login")}
           switchToForgot={() => setView("forgot")}
-          // switchToAddress={() => setView("address")}
         />
       )}
 
@@ -50,6 +55,12 @@ const Modal = ({ closeModal }) => {
 
       {view === "address" && (
         <Address closeModal={closeModal} onSave={handleSaveAddress} />
+      )}
+
+      {view === "loading" && (
+        <Loading
+          closeModal={closeModal}
+        />
       )}
     </div>
   );

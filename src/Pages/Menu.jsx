@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Menu.css";
-import { FaRegUser } from "react-icons/fa";
-import { CiLocationOn } from "react-icons/ci";
-import { IoSearchOutline } from "react-icons/io5";
-import { MdShoppingCart } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import axios from "axios";
+import NewHeader from "../Components/NewHeader/NewHeader";
 
 const Menu = () => {
   const [category, setCategory] = useState([]);
@@ -120,48 +117,7 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <div className="menu_Container">
-        <div className="menu_wrapper">
-          <div className="menu_wrap1">
-            <div className="Bite_logo">
-              <p>FirstBite.</p>
-            </div>
-
-            <div className="Location_holder">
-              <CiLocationOn className="location_icon" />
-              <p>{user?.deliveryAddress || "No Address Set"}</p>
-            </div>
-          </div>
-
-          <div className="menu_wrap2">
-            <div className="Input_holder_search">
-              <div className="Input_search_container">
-                <IoSearchOutline />
-                <input
-                  type="text"
-                  placeholder="What would you like for breakfast?"
-                />
-              </div>
-            </div>
-
-            <div className="menu_cart_icon">
-              <div className="cart_icon_holder">
-                <div className="cart_icon">
-                  <MdShoppingCart />
-                </div>
-                <div className="cart_count">
-                  <span>{cart.length}</span>
-                </div>
-              </div>
-              <div className="menu_user_icon">
-                <FaRegUser />
-                <div className="profile-dropdown"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+       <NewHeader/>
       <div className="menu-section">
         <div className="menu-items">
           <h1>{`${getGreeting()}, ${user ? user.fullName : "Guest"}!!`}</h1>

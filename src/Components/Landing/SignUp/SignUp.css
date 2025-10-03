@@ -1,28 +1,31 @@
-.modal{
-    position: fixed;
-    width: 100vw;
-    min-height: 100vh;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadIn 1s ease;
-    background: rgba(0, 0, 0, 0.6);
+.modal {
+  position: fixed;
+  width: 100vw;
+  min-height: 90vh;
+  margin-top: 10px;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadIn 1s ease;
+  background: rgba(0, 0, 0, 0.6);
 }
-@keyframes fadIn{
-    from {
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
+
+@keyframes fadIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .login_container {
   background: #fff;
-  min-width: 500px;
-  min-height: 80vh;
+  width: 100%;               /* full width by default */
+  max-width: 500px;          /* don’t exceed 500px */
+  min-height: 70vh;
   padding: 1rem 2rem;
   border-radius: 20px;
   display: flex;
@@ -33,42 +36,98 @@
   animation: slideUp 0.4s ease;
 }
 
-.login, .login_to{
-    text-align: center;
+/* Typography & spacing */
+.login,
+.login_to {
+  text-align: center;
 }
-.body, .psw{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
 
+.body,
+.psw {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.body > input, .psw > input{
+
+.body > input,
+.psw > input {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.log {
+  line-height: 1.5;
+}
+.log > h3 {
+  font-size: 20px;
+}
+.log > h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.fpsw {
+  font-size: 12px;
+}
+.log_al {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.log_atl_log {
+  padding: 1rem 0;
+  border-radius: 10px;
+  background: #ff7700;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .login_container {
+    width: 90%;            
+    min-height: auto;
     padding: 1rem;
-    border-radius: 10px;
+  }
+
+  .log > h3 {
+    font-size: 18px;
+  }
+  .log > h4 {
+    font-size: 14px;
+  }
+
+  .log_atl_log {
+    font-size: 15px;
+    padding: 0.8rem 0;
+  }
 }
-.log{
-    line-height: 1.5;
-}
-.log > h3{
-    font-size: 20px;
-}
-.log > h4{
-    font-size: 16px;
-    font-weight: 500;
-}
-.fpsw{
-    font-size: 11px;
-}
-.log_al{
-    display: flex;
-    flex-direction: column;
+
+@media (max-width: 480px) {
+  .login_container {
+    width: 95%;
+    border-radius: 12px;
+    padding: 0.8rem;
+  }
+
+  .body > input,
+  .psw > input {
+    padding: 0.8rem;
+    font-size: 14px;
+  }
+
+  .fpsw {
+    font-size: 10px;
     text-align: center;
-}
-.log_atl_log{
-    padding: 1rem 0;
-    border-radius: 10px;
-    background: #ff7700;
-    border: none;
-    outline: none;
-    font-size: 17px;
+  }
+
+  .log > h3 {
+    font-size: 16px;
+  }
+  .log > h4 {
+    font-size: 13px;
+  }
 }

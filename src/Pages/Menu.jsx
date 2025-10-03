@@ -1,14 +1,8 @@
 import React, { use, useEffect, useState } from "react";
 import "./Menu.css";
-import { FaRegUser } from "react-icons/fa";
-import { CiLocationOn } from "react-icons/ci";
-import { IoSearchOutline } from "react-icons/io5";
-import { MdShoppingCart } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 
 const Menu = () => {
   const [category, setCategory] = useState([]);
@@ -172,30 +166,12 @@ const Menu = () => {
                   <MdShoppingCart />
                 </div>
                 <div className="cart_count">
-                  <span>{cart?.goods?.length}</span>
+                  <span>{cart.length}</span>
                 </div>
               </div>
-              <div className="menu_user_icon" onClick={toggleDropdown}>
+              <div className="menu_user_icon">
                 <FaRegUser />
-                {isDropdownVisible && (
-                  <>
-                    <div
-                      className="profile-dropdown-overlay"
-                      onClick={closeDropdown}
-                    ></div>
-                    <div className="profile-dropdown">
-                      <Link to="/profile" className="Link">
-                        <p>Profile</p>
-                      </Link>
-                      <Link to="/order_history" className="Link">
-                        <p>Order History</p>
-                      </Link>
-                      <Link to="/" className="Link">
-                        <p>Logout</p>
-                      </Link>
-                    </div>
-                  </>
-                )}
+                <div className="profile-dropdown"></div>
               </div>
             </div>
           </div>

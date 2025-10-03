@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import "./Menu.css";
 import { FaRegUser } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
@@ -7,6 +7,8 @@ import { MdShoppingCart } from "react-icons/md";
 import { FaPlus } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Menu = () => {
   const [category, setCategory] = useState([]);
@@ -17,14 +19,15 @@ const Menu = () => {
   const userId = JSON.parse(sessionStorage.getItem("userId"));
   const [user, setUser] = useState(null);
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [cart, setCart] = useState([])
-  // console.log("this is the user", products);
+  const [cart, setCart] = useState([]);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const navigator = useNavigate();
 
   const BaseUrl =
     "https://group2-firstbite-project.onrender.com/product/categories";
   const Base_Url = "https://group2-firstbite-project.onrender.com/product";
   const BaseUrlUser = `https://group2-firstbite-project.onrender.com/user/${userId}`;
-  const BaseUrll = "https://group2-firstbite-project.onrender.com/cart"
+  const BaseUrll = "https://group2-firstbite-project.onrender.com/cart";
 
   // Handle selecting an address from suggestions
   const handleGetUserdata = async () => {
@@ -41,12 +44,10 @@ const Menu = () => {
       return "Good Morning";
     } else if (hour < 18) {
       return "Good Afternoon";
-    } else if (hour < 18) {
-      return "Good Afternoon";
-    } else if (hour < 23) {
+    } else if (hour < 22) {
       return "Good Evening";
     } else {
-      return "Good Night";
+      return "You sshould be sleeping by now!";
     }
   };
   // Fetch Categories
@@ -76,38 +77,55 @@ const Menu = () => {
   //fetching usercart
   // adding to cart
 
-  const fetchCart = async () => {
+  const handleGetCart = async () => {
     try {
       const res = await axios.get(`${BaseUrll}/${userId}`);
-      setCart(res.data.data || [])
-    } catch (error) {
-      console.log("fetch cart error", error)
+      console.log("get user cart", res.data.cart);
+      setCart(res.data.cart || []);
+    } catch (err) {
+      console.log("this s the post error", err);
     }
-  }
+  };
   const addToCart = async (productId) => {
     try {
-      const res = await axios.post(BaseUrll,
-        {
-          userId: userId,
-          productId: productId,
-          quantity: 1,
-        }
-      );
+      const res = await axios.post(BaseUrll, {
+        userId: userId,
+        productId: productId,
+        quantity: 1,
+      });
 
-      setCart((prev) => [...prev, res.data.item || { productId, quantity: 1 }]);
-
-      console.log("adding cart", res.data)
+      handleGetCart();
+      toast.success("Item added to cart");
+      console.log("adding cart", res.data);
     } catch (error) {
-      console.log("this is error", error)
+      console.log("this is error", error);
     }
-  }
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownVisible(false);
+  };
+
+  const deleteCartItem = async (productId) => {
+    try {
+      await axios.delete(`${BaseUrll}/${userId}/${productId}`);
+      toast.success("Item deleted successfully");
+      handleGetCart();
+    } catch (error) {
+      console.error("Error deleting cart item:", error);
+    }
+  };
 
   useEffect(() => {
     fetchCategories();
     fetchProducts();
     handleGetUserdata();
     getGreeting();
-    fetchCart();
+    handleGetCart();
   }, []);
 
   useEffect(() => {
@@ -117,6 +135,10 @@ const Menu = () => {
         : products.filter((product) => product.category === categorySelected)
     );
   }, [categorySelected, products]);
+
+  useEffect(() => {}, [isDropdownVisible]);
+
+  useEffect(() => {}, [closeDropdown]);
 
   return (
     <div className="menu-container">
@@ -150,12 +172,30 @@ const Menu = () => {
                   <MdShoppingCart />
                 </div>
                 <div className="cart_count">
-                  <span>{cart.length}</span>
+                  <span>{cart?.goods?.length}</span>
                 </div>
               </div>
-              <div className="menu_user_icon">
+              <div className="menu_user_icon" onClick={toggleDropdown}>
                 <FaRegUser />
-                <div className="profile-dropdown"></div>
+                {isDropdownVisible && (
+                  <>
+                    <div
+                      className="profile-dropdown-overlay"
+                      onClick={closeDropdown}
+                    ></div>
+                    <div className="profile-dropdown">
+                      <Link to="/profile" className="Link">
+                        <p>Profile</p>
+                      </Link>
+                      <Link to="/order_history" className="Link">
+                        <p>Order History</p>
+                      </Link>
+                      <Link to="/" className="Link">
+                        <p>Logout</p>
+                      </Link>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -215,8 +255,10 @@ const Menu = () => {
                         <p>{product.description}</p>
                         <h4>NGN {product.price}</h4>
                       </div>
-                      <div className="menu-add" onClick={() => addToCart(product._id)}>
-
+                      <div
+                        className="menu-add"
+                        onClick={() => addToCart(product._id)}
+                      >
                         <FaPlus />
                       </div>
                     </div>
@@ -230,7 +272,7 @@ const Menu = () => {
         {/* Right side - Cart */}
         <div className="menu-cart">
           <h2>Cart</h2>
-          {cart.length === 0 ? (
+          {cart?.goods?.length <= 0 || cart?.goods === undefined ? (
             <>
               <p>No Orders Yet</p>
               <p>Add items to cart to view here</p>
@@ -238,11 +280,17 @@ const Menu = () => {
             </>
           ) : (
             <div className="cart-container">
-              {cart.map((item, index) => (
+              {cart?.goods?.map((item, index) => (
                 <div key={index} className="cart-item">
-                  <img src={item.productId?.imageUrl} alt={item.productId?.description} className="item-image" />
+                  <img
+                    src={item.productId?.imageUrl}
+                    alt={item.productId?.description}
+                    className="item-image"
+                  />
                   <div className="item-details">
-                    <p className="item-description">{item.productId?.description}</p>
+                    <p className="item-description">
+                      {item.productId?.productName}
+                    </p>
                     <p className="item-price">NGN {item.productId?.price}</p>
                     <div className="quantity-control">
                       <button onClick={() => decreaseQuantity(index)}>-</button>
@@ -250,20 +298,31 @@ const Menu = () => {
                       <button onClick={() => increaseQuantity(index)}>+</button>
                     </div>
                   </div>
-                  <button onClick={() => removeItem(index)} className="delete-button">🗑️</button>
+                  <button
+                    onClick={() => deleteCartItem(item.productId._id)}
+                    className="delete-button"
+                  >
+                    🗑️
+                  </button>
                 </div>
               ))}
 
               <div className="cart-total">
                 <p>Total</p>
-                <p>NGN{cart.reduce((sum, item) => sum + item.productId?.price * item.quantity, 0)}</p>
+                <p>
+                  NGN
+                  {cart?.totalPrice}
+                </p>
               </div>
 
-              <button className="checkout-button">Checkout</button>
+              <button
+                className="checkout-button"
+                onClick={() => navigator("/ordersummary")}
+              >
+                Checkout
+              </button>
             </div>
-
           )}
-//cart
         </div>
       </div>
     </div>

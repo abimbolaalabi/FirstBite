@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./OrderSummary.css";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
@@ -6,11 +7,29 @@ import { LuPhoneCall } from "react-icons/lu";
 import { FaRegEdit } from "react-icons/fa";
 
 const OrderSummary = () => {
+  const [cart, setCart] = useState([]);
+  const userId = JSON.parse(sessionStorage.getItem("userId"));
+
+  const fetchCart = async () => {
+    try {
+      const response = await axios.get(
+        `https://group2-firstbite-project.onrender.com/cart/${userId}`
+      );
+      setCart(response.data.cart || []);
+    } catch (error) {
+      console.error("Error fetching cart data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCart();
+  }, []);
+
   return (
     <div className="Summary_container">
       <div className="Summary_wrapper">
         <div className="Summary_heading">
-          <div className="Order_sum_icon">
+          <div className="Order_sum_icon" onClick={() => window.history.back()}>
             <MdOutlineKeyboardArrowLeft />
           </div>
           <div className="Order_sum_text">

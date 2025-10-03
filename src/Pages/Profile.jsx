@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import {
   MdShoppingCart,
@@ -9,9 +9,59 @@ import { FaRegUser, FaRegEdit } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import { IoSearchOutline, IoCallOutline } from "react-icons/io5";
 import ProfileDrop from "../Components/Dropdown/ProfileDrop";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Profile = () => {
   const [dropDown, setDropDown] = useState(false);
+  const [user, setUser] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [editField, setEditField] = useState("");
+  const [editValue, setEditValue] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const userId = JSON.parse(sessionStorage.getItem("userId"));
+
+  const fetchUserData = async () => {
+    try {
+      const response = await axios.get(
+        `https://group2-firstbite-project.onrender.com/user/${userId}`
+      );
+      setUser(response.data.data);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  const handleEditClick = (field, value) => {
+    setEditField(field);
+    setEditValue(value);
+    setIsModalVisible(true);
+  };
+
+  const handleSave = async () => {
+    setLoading(true);
+    try {
+      const updatedUser = { ...user, [editField]: editValue };
+      await axios.patch(
+        `https://group2-firstbite-project.onrender.com/user/${userId}`,
+        updatedUser
+      );
+      toast.success("Profile updated successfully!");
+      setLoading(false);
+      fetchUserData();
+      setIsModalVisible(false);
+    } catch (error) {
+      setLoading(false);
+      console.error("Error saving user data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
   return (
     <div className="Profile_body">
       <div className="Profile_Container">
@@ -57,7 +107,7 @@ const Profile = () => {
       <section className="Profile_page_body">
         <div className="Profile_wrapper_holder">
           <article className="profile_heading">
-            <div className="go_to_menu">
+            <div className="go_to_menu" onClick={() => navigate("/menu")}>
               <MdOutlineKeyboardArrowLeft className="Go_menu" />
               <p>Go to Menu</p>
             </div>
@@ -85,11 +135,21 @@ const Profile = () => {
                       >
                         Name
                       </label>
-                      <input type="text" placeholder="uchechukwu evans" />
+                      <input
+                        type="text"
+                        placeholder={user?.fullName || "Name not available"}
+                        value={user?.fullName || ""}
+                        readOnly
+                      />
                     </aside>
                   </div>
                   <div className="user_edit_holder_icon">
-                    <div className="edit_holder_container">
+                    <div
+                      className="edit_holder_container"
+                      onClick={() =>
+                        handleEditClick("fullName", user?.fullName)
+                      }
+                    >
                       <FaRegEdit />
                     </div>
                   </div>
@@ -113,12 +173,17 @@ const Profile = () => {
                       </label>
                       <input
                         type="text"
-                        placeholder="uchechukwuevans@gmail.com"
+                        placeholder={user?.email || "Email not available"}
+                        value={user?.email || ""}
+                        readOnly
                       />
                     </aside>
                   </div>
                   <div className="user_edit_holder_icon">
-                    <div className="edit_holder_container">
+                    <div
+                      className="edit_holder_container"
+                      onClick={() => handleEditClick("email", user?.email)}
+                    >
                       <FaRegEdit />
                     </div>
                   </div>
@@ -140,11 +205,23 @@ const Profile = () => {
                       >
                         Phone Number
                       </label>
-                      <input type="text" placeholder="+2349165700255" />
+                      <input
+                        type="text"
+                        placeholder={
+                          user?.phoneNumber || "Phone number not available"
+                        }
+                        value={user?.phoneNumber || ""}
+                        readOnly
+                      />
                     </aside>
                   </div>
                   <div className="user_edit_holder_icon">
-                    <div className="edit_holder_container">
+                    <div
+                      className="edit_holder_container"
+                      onClick={() =>
+                        handleEditClick("phoneNumber", user?.phoneNumber)
+                      }
+                    >
                       <FaRegEdit />
                     </div>
                   </div>
@@ -166,11 +243,26 @@ const Profile = () => {
                       >
                         Delivery Address
                       </label>
-                      <input type="text" placeholder="uchechukwu evans" />
+                      <input
+                        type="text"
+                        placeholder={
+                          user?.deliveryAddress || "Address not available"
+                        }
+                        value={user?.deliveryAddress || ""}
+                        readOnly
+                      />
                     </aside>
                   </div>
                   <div className="user_edit_holder_icon">
-                    <div className="edit_holder_container">
+                    <div
+                      className="edit_holder_container"
+                      onClick={() =>
+                        handleEditClick(
+                          "deliveryAddress",
+                          user?.deliveryAddress
+                        )
+                      }
+                    >
                       <FaRegEdit />
                     </div>
                   </div>
@@ -182,6 +274,25 @@ const Profile = () => {
           </aside>
         </div>
       </section>
+
+      {isModalVisible && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <div className="close" onClick={() => setIsModalVisible(false)}>
+              &times;
+            </div>
+            <h2>Change {editField}</h2>
+            <input
+              type="text"
+              value={editValue}
+              onChange={(e) => setEditValue(e.target.value)}
+            />
+            <button onClick={handleSave} disabled={loading}>
+              {loading ? "Saving..." : "Save"}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

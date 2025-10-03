@@ -2,7 +2,12 @@ import React, { use, useEffect, useState } from "react";
 import "./Menu.css";
 import { FaPlus } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
+import { CiLocationOn } from "react-icons/ci";
+import { FaRegUser } from "react-icons/fa";
+import { IoSearchOutline } from "react-icons/io5";
+import { MdShoppingCart } from "react-icons/md";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const [category, setCategory] = useState([]);
@@ -15,6 +20,7 @@ const Menu = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [cart, setCart] = useState([]);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
   const navigator = useNavigate();
 
   const BaseUrl =
@@ -130,9 +136,9 @@ const Menu = () => {
     );
   }, [categorySelected, products]);
 
-  useEffect(() => {}, [isDropdownVisible]);
+  useEffect(() => { }, [isDropdownVisible]);
 
-  useEffect(() => {}, [closeDropdown]);
+  useEffect(() => { }, [closeDropdown]);
 
   return (
     <div className="menu-container">

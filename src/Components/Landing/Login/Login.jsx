@@ -10,13 +10,11 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
 
   const [errors, setErrors] = useState({});
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  
   const validate = () => {
     let newErrors = {};
 
@@ -30,7 +28,6 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -89,7 +86,9 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
       </p>
 
       <div className="log_al">
-        <button type="submit" className="log_atl_log">Login</button>
+        <button type="submit" className="log_atl_log">
+          Login
+        </button>
       </div>
 
       <p className="acct">

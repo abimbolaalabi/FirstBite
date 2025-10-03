@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import "./Order.css";
 
 const Order = () => {
-  const [ratings, setRatings] = useState({}); 
+  const [ratings, setRatings] = useState({});
 
   const handleRating = (id, value) => {
     setRatings((prev) => ({ ...prev, [id]: value }));
@@ -51,10 +51,10 @@ const Order = () => {
 
   return (
     <div className="order-history">
-      <a href="/" className="back-link">{"< Go to Menu"}</a>
+      <a href="/" className="back-link">
+        {"< Go to Menu"}
+      </a>
       <h2 className="title">Order History</h2>
-
-    
       <section>
         <h3>Active Orders</h3>
         {activeOrders.map((order) => (
@@ -72,20 +72,31 @@ const Order = () => {
             </div>
 
             <div className="progress-bar">
-              <div className={`progress-step ${order.status === "confirmed" ? "active" : ""}`}>
+              <div
+                className={`progress-step ${
+                  order.status === "confirmed" ? "active" : ""
+                }`}
+              >
                 Confirmed
               </div>
-              <div className={`progress-step ${order.status === "on-the-way" ? "active" : ""}`}>
+              <div
+                className={`progress-step ${
+                  order.status === "on-the-way" ? "active" : ""
+                }`}
+              >
                 On its way
               </div>
-              <div className={`progress-step ${order.status === "delivered" ? "active" : ""}`}>
+              <div
+                className={`progress-step ${
+                  order.status === "delivered" ? "active" : ""
+                }`}
+              >
                 Delivered
               </div>
             </div>
           </div>
         ))}
       </section>
-      
       <section>
         <h3>Previous Orders</h3>
         {previousOrders.map((order) => (
@@ -112,7 +123,9 @@ const Order = () => {
                     <FaStar
                       key={star}
                       size={18}
-                      color={star <= (ratings[order.id] || 0) ? "#ff7a00" : "#ccc"}
+                      color={
+                        star <= (ratings[order.id] || 0) ? "#ff7a00" : "#ccc"
+                      }
                       onClick={() => handleRating(order.id, star)}
                       style={{ cursor: "pointer" }}
                     />

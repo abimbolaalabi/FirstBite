@@ -33,10 +33,7 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // 🔹 Replace with your real login endpoint
-  const BaseUrl = "https://group2-firstbite-project.onrender.com/login";
 
-  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -110,8 +107,7 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
       </p>
 
       <div className="log_al">
-        <button type="submit" className="log_atl_log" disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
+
         </button>
       </div>
 

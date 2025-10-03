@@ -65,9 +65,25 @@ h3 {
   font-size: 16px;
 }
 
+.reorder-btn {
+  background: #ff7a00;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
 
 .reorder-btn:hover {
   background: #e69500;
+}
+
+.order-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
 }
 
 .progress-bar {
@@ -109,38 +125,15 @@ h3 {
   color: #ccc;
 }
 
-
-.rating-section p {
-  font-size: 13px;
-  margin: 0 0 4px;
-}
-
-
-.stars {
-  display: flex;
-  gap: 4px;
-}
-.order-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
-}
-
-.reorder-btn {
-  background: #ff7a00;
-  color: #fff;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
 .rating-section {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.rating-section p {
+  font-size: 13px;
+  margin: 0 0 4px;
 }
 
 .rate-text {

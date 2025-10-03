@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import "./Order.css";
 
 const Order = () => {
-  const [ratings, setRatings] = useState({}); 
+  const [ratings, setRatings] = useState({});
 
   const handleRating = (id, value) => {
     setRatings((prev) => ({ ...prev, [id]: value }));
@@ -54,7 +54,7 @@ const Order = () => {
       <a href="/" className="back-link">{"< Go to Menu"}</a>
       <h2 className="title">Order History</h2>
 
-    
+      {/* Active Orders */}
       <section>
         <h3>Active Orders</h3>
         {activeOrders.map((order) => (
@@ -85,7 +85,8 @@ const Order = () => {
           </div>
         ))}
       </section>
-      
+
+      {/* Previous Orders */}
       <section>
         <h3>Previous Orders</h3>
         {previousOrders.map((order) => (

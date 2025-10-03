@@ -165,7 +165,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f1f3f3;
+  background-color: #f8fafdf3;
   padding: 20px 0;
 }
 
@@ -180,6 +180,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+<<<<<<< HEAD
+  /* background-color: green; */
+=======
+>>>>>>> 0ad461c39ad890f41913d232aadd66a35ef3aa48
 }
 
 .go_to_menu {

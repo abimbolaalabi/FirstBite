@@ -171,7 +171,7 @@
   cursor: pointer;
   position: relative;
 }
-.profile-dropdown{
+/* .profile-dropdown{
   width: 10rem;
   height: 8rem;
   background-color: #ff7700;
@@ -179,7 +179,7 @@
   position: absolute;
   top: 100%;
 
-}
+} */
 .menu-container {
   width: 100%;
   min-height: 100vh;

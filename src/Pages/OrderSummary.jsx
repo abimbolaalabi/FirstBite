@@ -5,6 +5,7 @@ import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 import { LuPhoneCall } from "react-icons/lu";
 import { FaRegEdit } from "react-icons/fa";
+import NewHeader from "../Components/NewHeader/NewHeader";
 
 const OrderSummary = () => {
   const [cart, setCart] = useState([]);
@@ -27,7 +28,9 @@ const OrderSummary = () => {
 
   return (
     <div className="Summary_container">
+    
       <div className="Summary_wrapper">
+          {/* <NewHeader/> */}
         <div className="Summary_heading">
           <div className="Order_sum_icon" onClick={() => window.history.back()}>
             <MdOutlineKeyboardArrowLeft />

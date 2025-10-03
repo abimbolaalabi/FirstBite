@@ -63,7 +63,9 @@ const NewMenu = () => {
                 {
                   filteredProduct.map((product) => (
                     <div className='new-menu-card' key={product._id}>
-                      <div className='new-menu-img'>
+                      <div className='new-menu-img'
+                      style={{   backgroundImage: `url(${product?.productImages[0]?.imageUrl})`}}
+                      >
                         <p>{product.category}</p>
                       </div>
                       <div className='new-menu-textwrapper'>

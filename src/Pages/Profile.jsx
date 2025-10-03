@@ -40,6 +40,10 @@ const Profile = () => {
     setIsModalVisible(true);
   };
 
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+  };
+
   const handleSave = async () => {
     setLoading(true);
     try {
@@ -276,9 +280,9 @@ const Profile = () => {
       </section>
 
       {isModalVisible && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <div className="close" onClick={() => setIsModalVisible(false)}>
+        <div className="modal-overlay" onClick={handleCloseModal}>
+          <div className="modalProfile" onClick={(e) => e.stopPropagation()}>
+            <div className="close" onClick={handleCloseModal}>
               &times;
             </div>
             <h2>Change {editField}</h2>

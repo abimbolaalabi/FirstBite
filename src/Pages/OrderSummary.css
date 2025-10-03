@@ -1,0 +1,343 @@
+.Summary_container {
+  width: 100%;
+  height: 117vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Summary_wrapper {
+  width: 90%;
+  height: 100%;
+  background-color: #f8fafdf3;
+}
+
+.Summary_heading {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Order_sum_icon {
+  width: 30%;
+  height: 100%;
+  /* background-color: yellow; */
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.Order_sum_text {
+  width: 30%;
+  height: 100%;
+  /* background-color: yellow; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Summary_content_holder {
+  width: 100%;
+  height: 85%;
+  /* background-color: green; */
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.Summary_content {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Summary_content h4 {
+  font-weight: 600;
+  font-size: 24px;
+  font-family: Montserrat;
+  color: #000000;
+}
+
+.Summary_input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+.Summary_input_delivery {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Summary_input_delivery textarea {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  font-style: italic;
+  font-size: 14px;
+  font-family: Montserrat;
+  font-weight: 400;
+  border-radius: 8px;
+  border: 1px solid #121212;
+}
+
+.Summary_input_delivery label {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Montserrat;
+  color: #000000;
+}
+
+.Summary_input textarea {
+  width: 100%;
+  height: 92px;
+  border: 1px solid #121212;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-style: italic;
+  color: #333333;
+  padding: 10px;
+}
+
+.Summary_input label {
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #000000;
+}
+
+.Summary_info_container {
+  width: 100%;
+  height: 74px;
+  background-color: #fae0c9;
+  display: flex;
+  gap: 10px;
+  border: 1px solid #aaaaaa;
+  margin-top: 10px;
+}
+
+.Summary_edit_holder {
+  width: 80%;
+  height: 100%;
+  /* background-color: green; */
+  display: flex;
+  gap: 10px;
+}
+
+.Summary_edit_icon {
+  width: 13%;
+  font-size: 32px;
+  color: #222222;
+  height: 100%;
+  /* background-color: yellow; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff7700;
+}
+
+.summary_input_field_edit {
+  width: 90%;
+  height: 100%;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+}
+
+.summary_input_field_edit input {
+  width: 100%;
+  height: 100%;
+  background-color: #fae0c9;
+  border: none;
+  outline: none;
+  color: #222222;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Montserrat;
+}
+
+.Summary_edit_holder_icon {
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  /* background-color: #ffc797; */
+}
+
+.Summary_edit_holder_container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  color: #222222;
+}
+
+.Summary_address {
+  margin-top: 10px;
+  width: 100%;
+  height: 200px;
+}
+
+.Summary_content_2 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.Confirm_order_container {
+  width: 90%;
+  height: 581px;
+  border: 1px solid #aaaaaa;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Confirm_order_container h1 {
+  font-size: 24px;
+  font-family: Montserrat;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.Confirm_order_content {
+  width: 75%;
+  height: 271px;
+  background-color: #e8e8e8;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.Confirm_fee {
+  width: 383px;
+  height: 169px;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Confirm_fee h4 {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 500;
+  color: #121212;
+}
+
+.Confirm_food {
+  width: 100%;
+  height: 30%;
+  /* background-color: green; */
+  display: flex;
+  gap: 10px;
+}
+.Food_pricing {
+  width: 50%;
+  height: 100%;
+  /* background-color: yellow; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 500;
+  color: #121212;
+}
+
+.Food_pricing_1 {
+  width: 50%;
+  height: 100%;
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 500;
+  color: #121212;
+}
+
+.Confirm_total {
+  width: 97%;
+  height: 20%;
+  /* background-color: red; */
+  display: flex;
+  gap: 10px;
+}
+
+.Total_pricing {
+  width: 50%;
+  height: 100%;
+  /* background-color: yellow; */
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 500;
+  color: #121212;
+}
+
+.Total_pricing_1 {
+  width: 50%;
+  height: 100%;
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 500;
+  color: #121212;
+}
+
+.Confirm_delivery_text {
+  width: 80%;
+  height: 98px;
+  margin-top: 10px;
+}
+
+.Confirm_delivery_text p {
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #121212;
+  line-height: 150%;
+  letter-spacing: 0%;
+}
+
+.Confirm_btn {
+  width: 90%;
+  height: 56px;
+}
+
+.Confirm_btn button {
+  width: 100%;
+  height: 100%;
+  background-color: #ff7700;
+  cursor: pointer;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: Montserrat;
+  font-weight: 500;
+  border: none;
+}

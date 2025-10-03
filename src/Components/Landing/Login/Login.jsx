@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import "./Login.css";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
   const [formData, setFormData] = useState({
@@ -9,6 +11,7 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
   });
 
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,25 +20,43 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
 
   const validate = () => {
     let newErrors = {};
-
     if (!formData.email.includes("@")) {
       newErrors.email = "Invalid email address";
+      setLoading(false);
     }
     if (formData.password.length < 6) {
       newErrors.password = "Password must be at least 6 characters";
+      setLoading(false);
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+
     e.preventDefault();
-    if (validate()) {
-      console.log("✅ Login Data:", formData);
-      alert("Login successful!");
-      setFormData({ email: "", password: "" }); // reset after login
-      closeModal();
+    setLoading(true);
+
+    try {
+      if (validate()) {
+        const res = await axios.post(BaseUrl, formData);
+
+        if (res?.data?.success) {
+          sessionStorage.setItem("userId", JSON.stringify(res?.data?.data?._id));
+          sessionStorage.setItem("token", JSON.stringify(res?.data?.token));
+          toast.success(res?.data?.message || "Login successful!");
+
+          setFormData({ email: "", password: "" });
+          closeModal();
+        } else {
+          toast.error(res?.data?.message || "Login failed!");
+        }
+      }
+    } catch (err) {
+      console.log("Login error:", err);
+      toast.error(err?.response?.data?.message || "Something went wrong!");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -86,8 +107,7 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
       </p>
 
       <div className="log_al">
-        <button type="submit" className="log_atl_log">
-          Login
+
         </button>
       </div>
 

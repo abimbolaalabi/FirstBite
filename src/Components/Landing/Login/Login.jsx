@@ -3,8 +3,13 @@ import { IoCloseOutline } from "react-icons/io5";
 import "./Login.css";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
+
 
 const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
+
+  const navigate= useNavigate()
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -13,27 +18,29 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+
   const validate = () => {
     let newErrors = {};
     if (!formData.email.includes("@")) {
       newErrors.email = "Invalid email address";
-      setLoading(false);
     }
     if (formData.password.length < 6) {
       newErrors.password = "Password must be at least 6 characters";
-      setLoading(false);
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+const BaseUrl = "https://group2-firstbite-project.onrender.com/signIn"; 
 
 
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -47,6 +54,7 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
           toast.success(res?.data?.message || "Login successful!");
 
           setFormData({ email: "", password: "" });
+            navigate("/menu");
           closeModal();
         } else {
           toast.error(res?.data?.message || "Login failed!");
@@ -64,7 +72,7 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
     <form className="login_container" onSubmit={handleSubmit}>
       <div className="log">
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <IoCloseOutline size={25} onClick={closeModal} />
+          <IoCloseOutline size={25} onClick={closeModal} style={{ cursor: "pointer" }} />
         </div>
         <h3 className="login">Login</h3>
         <h4 className="login_to">Login to continue</h4>
@@ -107,7 +115,8 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
       </p>
 
       <div className="log_al">
-
+        <button type="submit" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
         </button>
       </div>
 

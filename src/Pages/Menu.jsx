@@ -15,7 +15,9 @@ const Menu = () => {
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [categorySelected, setCategorySelected] = useState("all");
   const [loading, setLoading] = useState(false);
-  const userId = JSON.parse(sessionStorage.getItem("userId"));
+ const storedUserId = sessionStorage.getItem("userId");
+const userId = storedUserId && storedUserId !== "undefined" ? JSON.parse(storedUserId) : null;
+
   const [user, setUser] = useState(null);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [cart, setCart] = useState([]);

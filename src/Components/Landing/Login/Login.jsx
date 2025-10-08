@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
 
-  const navigate= useNavigate()
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -18,7 +18,7 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
- 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -37,36 +37,47 @@ const Login = ({ closeModal, switchToSignUp, switchToForgot }) => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-const BaseUrl = "https://group2-firstbite-project.onrender.com/signIn"; 
+  const BaseUrl = "https://group2-firstbite-project.onrender.com/signIn";
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-    try {
-      if (validate()) {
-        const res = await axios.post(BaseUrl, formData);
+  try {
+    if (validate()) {
+      // 🟩 Make the API request
+      const res = await axios.post(BaseUrl, formData);
+      console.log("Login response:", res.data);
 
-        if (res?.data?.success) {
-          sessionStorage.setItem("userId", JSON.stringify(res?.data?.data?._id));
-          sessionStorage.setItem("token", JSON.stringify(res?.data?.token));
-          toast.success(res?.data?.message || "Login successful!");
+      // 🟩 Check if login is successful
+      if (
+        res?.data?.success === true ||
+        res?.data?.message?.toLowerCase().includes("welcome")
+      ) {
+        sessionStorage.setItem("userId", JSON.stringify(res?.data?.data?._id));
+        sessionStorage.setItem("token", JSON.stringify(res?.data?.token));
+        toast.success(res?.data?.message || "Login successful!");
 
-          setFormData({ email: "", password: "" });
-            navigate("/menu");
+        setFormData({ email: "", password: "" });
+
+        // 🟩 Navigate to menu
+        setTimeout(() => {
+          navigate("/menu");
           closeModal();
-        } else {
-          toast.error(res?.data?.message || "Login failed!");
-        }
+        }, 200);
+      } else {
+        toast.error(res?.data?.message || "Login failed!");
       }
-    } catch (err) {
-      console.log("Login error:", err);
-      toast.error(err?.response?.data?.message || "Something went wrong!");
-    } finally {
-      setLoading(false);
     }
-  };
+  } catch (err) {
+    console.log("Login error:", err);
+    toast.error(err?.response?.data?.message || "Something went wrong!");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <form className="login_container" onSubmit={handleSubmit}>
